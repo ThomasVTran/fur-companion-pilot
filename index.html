@@ -5,11 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="./tailwind.config.js"></script>
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
-  <body>
-    <header class="container text-lg  ">Fur Companion Pilot</header>
+  <body class="bg-blue">
+    <header
+      class="container block box-border h-30 p-10 border-10 text-center mx-auto text-3xl font-bold text-slate-950 uppercase"
+    >
+      Fur Companion Pilot
+    </header>
+    <div id="image-carousel" class="bg-gray-200 text-center py-8">
+        <p class="text-2xl font-bold">Image Carousel</p>
+    </div>
+    <div class="flex justify-center items-center h-screen">
+      <form action="" method="post">
+        <div class="mb-4">
+          <label for="question" class="block text-sm font-medium text-gray-600"
+            >Pet Questions</label
+          >
+          <input
+            type="text"
+            id="question"
+            name="question"
+            class="mt-1 p-2 border rounded-md w-full"
+          />
+        </div>
+
+        <button
+          type="submit"
+          class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+        >
+          Next
+        </button>
+      </form>
+    </div>
   </body>
   <script src="./assets/js/script.js"></script>
 </html>
