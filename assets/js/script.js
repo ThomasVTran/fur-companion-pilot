@@ -135,7 +135,10 @@ var dogQuestions = [
     question: "25. What level of shedding for your pet are you looking for?",
     dropdownOptions: ["1", "2", "3", "4", "5"],
   },
-  // question 26. dog breed for loop
+  {
+    questions: "26. dog breeds",
+    dropdownOptions: dogArray
+  }
 ];
 
 var catQuestions = [
@@ -158,7 +161,8 @@ var catQuestions = [
     ],
   },
   {
-    //  Question 20 for loop cat breeds
+    question: "20. cat breeds",
+    dropdownOptions: catArray
   },
   {
     question: "21. What level of shedding for your pet are you looking for?",
