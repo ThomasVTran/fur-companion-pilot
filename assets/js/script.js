@@ -1,6 +1,6 @@
 var questionsObject = [
     {
-        question: "1. I’m interested in adopting a ____. (Dropdown)",
+        question: "1. I’m interested in adopting a ____.",
         dropdownOptions: [
             "Dog",
             "Cat"
