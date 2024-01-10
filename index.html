@@ -1,12 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
-</head>
-<body>
-    <script src="./assets/js/script.js"></script>
-</body>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body class="bg-blue">
+    <header
+      class="container block box-border h-30 p-10 border-10 text-center mx-auto text-3xl font-bold text-slate-950 uppercase"
+    >
+      Fur Companion Pilot
+    </header>
+    <div id="image-carousel" class="bg-gray-200 text-center py-8">
+      <p class="text-2xl font-bold">Image Carousel</p>
+    </div>
+    <section id="question-progress-bar">
+      <p>Question Progress Bar Placeholder</p>
+    </section>
+    <div class="flex justify-center items-center h-screen">
+        <form action="/index.html" method="get">
+            <div class="mb-4">
+              <label for="question" class="block text-lg font-medium text-gray-600">
+                Question Placeholder
+              </label>
+              <select name="question" id="dropdownAnswers" class="mt-1 p-2 border rounded-md w-full">
+                <option value="option1">option placeholder</option>
+              </select>
+              <br>
+          
+              <input
+                type="submit"
+                value="submit"
+              />
+            </div>
+          </form>
+    </div>
+  </body>
+  <script src="./assets/js/script.js"></script>
 </html>
