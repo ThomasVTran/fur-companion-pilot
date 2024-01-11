@@ -1,8 +1,12 @@
 *{
-    font-family: ;
+    font-family: 'Gothic A1', sans-serif;
 }
 
 header{
     background-color: rgb(217 140 74);
     color: white;
+}
+
+#submitButtonStyle {
+    ;
 }
