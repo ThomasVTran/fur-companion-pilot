@@ -121,7 +121,7 @@ var catArray = [
     "Turkish Van",
     "Ukrainian Levkoy"
   ]
-
+  // cat loop for breed drop down
 for (let i = 0; i < catArray.length; i++) {
     var option= document.createElement('option')
     option.textContent = catArray[i]
@@ -585,7 +585,7 @@ for (let i = 0; i < catArray.length; i++) {
         "Yorkshire Terrier",
         "Šarplaninac"
       ]
-      
+      // dog loop for the breed drop down
       for (let i = 0; i < dogArray.length; i++) {
         var option= document.createElement('option')
         option.textContent = dogArray[i]
@@ -596,7 +596,7 @@ for (let i = 0; i < catArray.length; i++) {
 // need to create multiple question objects (cat, dog or both questions)
 var bothQuestions = [
   {
-    question: "1. I’m interested in adopting a ____.",
+    question: "1. I am interested in adopting a ____.",
     dropdownOptions: ["Dog", "Cat"],
   },
   {
