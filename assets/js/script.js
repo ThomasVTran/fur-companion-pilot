@@ -1,10 +1,9 @@
 // need to create multiple question objects (cat, dog or both questions)
 
-
-var currentQuestion = 0;// created a variable to keep a question count
+var currentQuestion = 0; // created a variable to keep a question count
 var answeredValue = 0;
-var questionPlaceEl = document.getElementById("questionPlaceholder");//targeted the questionplaceholder by ID
-var selectedOption = document.getElementById('dropdownAnswers').value; //targeted the dropdown options by id and then the value in the drop down
+var questionPlaceEl = document.getElementById("questionPlaceholder"); //targeted the questionplaceholder by ID
+var selectedOption = document.getElementById("dropdownAnswers").value; //targeted the dropdown options by id and then the value in the drop down
 //created a object of objects for the the questions for both, dogs and cats
 var bothQuestions = [
   {
@@ -80,7 +79,7 @@ var bothQuestions = [
   },
   {
     question: "15. How long can you allocate to play with your new pet?",
-    dropdownOptions:[
+    dropdownOptions: [
       "30 minutes a day (cat answer)",
       "1 hour a day (dog answer)",
       "3 hours a day (dog answer)",
@@ -96,7 +95,7 @@ var bothQuestions = [
   },
   {
     question: "18. I’m interested in adopting a ____.",
-    dropdownOptions:  ["Dog", "Cat"]
+    dropdownOptions: ["Dog", "Cat"],
   },
 ];
 var dogQuestions = [
@@ -147,8 +146,6 @@ var dogQuestions = [
   //   questions: "9. dog breeds",
   //   dropdownOptions: dogArray,
   // },
-
-
 ];
 var catQuestions = [
   {
@@ -178,7 +175,7 @@ var catQuestions = [
   //   dropdownOptions: catArray,
   // },
 ];
-//this function will append the question answers and add textcontent 
+//this function will append the question answers and add textcontent
 function appendQuestions() {
   console.log(currentQuestion);
   console.log(bothQuestions.length);
@@ -190,7 +187,7 @@ function appendQuestions() {
     // the same is done for dropdown answers
     var questionPlaceholder = document.getElementById("questionPlaceholder");
     var dropdownAnswers = document.getElementById("dropdownAnswers");
-    //the question placeholder is a label element, we will add the question text by saving the text content as the question at the location 
+    //the question placeholder is a label element, we will add the question text by saving the text content as the question at the location
     // saved by the currentquestionobject variable
     questionPlaceholder.textContent = currentQuestionObject.question;
     dropdownAnswers.innerHTML = "";
@@ -209,17 +206,17 @@ function appendQuestions() {
     // the current question count is updated + 1 each time
     currentQuestion++;
     console.log(currentQuestion);
-    console.log('in if statement')
+    console.log("in if statement");
   }
 }
 // calling the function to get the question object into the form
-appendQuestions()
+appendQuestions();
 
 //now we are calling attention to the form element, adding an event listener for that submit button and then running a function to re run the
 // append questions function each time submit is clicked, adding 1 to the question value each time and cycling the questions
-document.querySelector('form').addEventListener('submit', function (event) {
-  event.preventDefault(); 
-  appendQuestions(); 
+document.querySelector("form").addEventListener("submit", function (event) {
+  event.preventDefault();
+  appendQuestions();
 });
 
 // function dogCatQuestions(){
