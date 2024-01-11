@@ -77,8 +77,12 @@ var bothQuestions = [
     ],
   },
   {
-    question: "15. I’m interested in adopting a ____.",
-    dropdownOptions: ["Dog", "Cat"],
+    question: "15. How long can you allocate to play with your new pet?",
+    dropdownOptions:[
+      "30 minutes a day (cat answer)",
+      "1 hour a day (dog answer)",
+      "3 hours a day (dog answer)",
+    ],
   },
   {
     question: "16. I am wanting to adopt for _____.",
@@ -89,12 +93,8 @@ var bothQuestions = [
     dropdownOptions: ["1", "2", "3", "4", "5"],
   },
   {
-    question: "18. How long can you allocate to play with your new pet?",
-    dropdownOptions: [
-      "30 minutes a day (cat answer)",
-      "1 hour a day (dog answer)",
-      "3 hours a day (dog answer)",
-    ],
+    question: "18. I’m interested in adopting a ____.",
+    dropdownOptions:  ["Dog", "Cat"]
   },
 ];
 var dogQuestions = [
@@ -197,10 +197,7 @@ function appendQuestions() {
     currentQuestion++;
     console.log(currentQuestion);
     console.log('in if statement')
-  } else {
-    currentQuestions = 0;
   }
-  
 }
 appendQuestions()
 
