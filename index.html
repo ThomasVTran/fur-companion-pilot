@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Fur Companion Pilot</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,7 +24,7 @@
     <div class="flex justify-center items-center h-screen">
         <form action="/index.html" method="get">
             <div class="mb-4">
-              <label for="question" class="block text-lg font-medium text-gray-600">
+              <label for="question" id="questionPlaceholder" class="block text-lg font-medium text-gray-600">
                 Question Placeholder
               </label>
               <select name="question" id="dropdownAnswers" class="mt-1 p-2 border rounded-md w-full">
@@ -33,7 +33,7 @@
               <br>
           
               <input id = "submitButtonStyle"
-                type="button"
+                type="submit"
                 value="Submit"
               />
             </div>
