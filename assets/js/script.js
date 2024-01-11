@@ -1,4 +1,8 @@
 // need to create multiple question objects (cat, dog or both questions)
+var currentQuestion = 0;
+var answeredValue = 0;
+var questionPlaceEl = document.getElementById("questionPlaceholder");
+
 var bothQuestions = [
   {
     question: "1. Who lives with you?",
@@ -137,10 +141,10 @@ var dogQuestions = [
     question: "8. What level of shedding for your pet are you looking for?",
     dropdownOptions: ["1", "2", "3", "4", "5"],
   },
-  {
-    questions: "9. dog breeds",
-    dropdownOptions: dogArray,
-  },
+  // {
+  //   questions: "9. dog breeds",
+  //   dropdownOptions: dogArray,
+  // },
 ];
 
 var catQuestions = [
@@ -166,8 +170,39 @@ var catQuestions = [
       "$4,095 annually",
     ],
   },
-  {
-    question: "4. cat breeds",
-    dropdownOptions: catArray,
-  },
+  // {
+  //   question: "4. cat breeds",
+  //   dropdownOptions: catArray,
+  // },
 ];
+
+function appendQuestions() {
+  if (currentQuestion < bothQuestions.length) {
+    var currentQuestionObject = bothQuestions[currentQuestion];
+    var questionPlaceholder = document.getElementById("questionPlaceholder");
+    var dropdownAnswers = document.getElementById("dropdownAnswers");
+
+    questionPlaceholder.textContent = currentQuestionObject.question;
+    dropdownAnswers.innerHTML = "";
+
+    currentQuestionObject.dropdownOptions.forEach(function (option, index) {
+      var optionElement = document.createElement("option");
+      optionElement.value = "option" + (index + 1);
+      optionElement.textContent = option;
+      dropdownAnswers.appendChild(optionElement);
+    });
+    currentQuestion++;
+  }
+}
+appendQuestions()
+
+document.querySelector('form').addEventListener('submit', function (event) {
+  event.preventDefault(); 
+  appendQuestions(); 
+});
+
+function cycleQuestionsBoth() {
+  if (currentQuestions < bothQuestions.length) {
+    questionPlaceEl = parseInt(event.target.getAttribute(""));
+  }
+}
