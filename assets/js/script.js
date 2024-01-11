@@ -2,6 +2,7 @@
 var currentQuestion = 0;
 var answeredValue = 0;
 var questionPlaceEl = document.getElementById("questionPlaceholder");
+var selectedOption = document.getElementById('dropdownAnswers').value;
 
 var bothQuestions = [
   {
@@ -96,7 +97,6 @@ var bothQuestions = [
     ],
   },
 ];
-
 var dogQuestions = [
   {
     question:
@@ -145,8 +145,9 @@ var dogQuestions = [
   //   questions: "9. dog breeds",
   //   dropdownOptions: dogArray,
   // },
-];
 
+
+];
 var catQuestions = [
   {
     question: "1. What level of shedding for your pet are you looking for?",
@@ -177,6 +178,8 @@ var catQuestions = [
 ];
 
 function appendQuestions() {
+  console.log(currentQuestion);
+  console.log(bothQuestions.length);
   if (currentQuestion < bothQuestions.length) {
     var currentQuestionObject = bothQuestions[currentQuestion];
     var questionPlaceholder = document.getElementById("questionPlaceholder");
@@ -192,17 +195,51 @@ function appendQuestions() {
       dropdownAnswers.appendChild(optionElement);
     });
     currentQuestion++;
+    console.log(currentQuestion);
+    console.log('in if statement')
+  } else {
+    currentQuestions = 0;
   }
+  
 }
 appendQuestions()
+
 
 document.querySelector('form').addEventListener('submit', function (event) {
   event.preventDefault(); 
   appendQuestions(); 
 });
 
-function cycleQuestionsBoth() {
-  if (currentQuestions < bothQuestions.length) {
-    questionPlaceEl = parseInt(event.target.getAttribute(""));
-  }
-}
+// function dogCatQuestions(){
+
+// if (currentQuestion === 14 && selectedOption === 'Dog'){
+//   var currentQuestionObject = dogQuestions[currentQuestion - 14];
+//   var questionPlaceholder = document.getElementById("questionPlaceholder");
+//   var dropdownAnswers = document.getElementById("dropdownAnswers");
+
+//   questionPlaceholder.textContent = currentQuestionObject.question;
+//     dropdownAnswers.innerHTML = "";
+//     currentQuestionObject.dropdownOptions.forEach(function (option, index) {
+//       var optionElement = document.createElement("option");
+//       optionElement.value = "option" + (index + 1);
+//       optionElement.textContent = option;
+//       dropdownAnswers.appendChild(optionElement);
+//     });
+//     currentQuestion++;
+// }
+// if (currentQuestion === 14 && selectedOption === 'Cat'){
+//   var currentQuestionObject = catQuestions[currentQuestion - 14];
+//   var questionPlaceholder = document.getElementById("questionPlaceholder");
+//   var dropdownAnswers = document.getElementById("dropdownAnswers");
+
+//   questionPlaceholder.textContent = currentQuestionObject.question;
+//     dropdownAnswers.innerHTML = "";
+//     currentQuestionObject.dropdownOptions.forEach(function (option, index) {
+//       var optionElement = document.createElement("option");
+//       optionElement.value = "option" + (index + 1);
+//       optionElement.textContent = option;
+//       dropdownAnswers.appendChild(optionElement);
+//     });
+//     currentQuestion++;
+// }
+// }
