@@ -1,6 +1,8 @@
 var APINinjas = 'cjMugAovo7SNn+DtczTAMg==P49uxlggz9Z3SFRx'
 var chosenPetType = 'cats'
 var petBreed = '5'
+var carouselImgs = document.querySelectorAll('.animal-image')
+var carouselItems = document.getElementById('carousel-items')
 var requestNinja = `https://api.api-ninjas.com/v1/${chosenPetType}?playfulness=${petBreed}`
 
 var theCatAPIKey = 'live_zqFTSSujc6nQSLlan4OKwI0Jzmsczq7iedMNANsZMjYf6yKUT8ee0A13DyhrzRHv'
@@ -26,20 +28,44 @@ fetch(`https://api.thecatapi.com/v1/images/search?limit=5&api_key=${theCatAPIKey
   .then(function (dogData) {
     console.log(dogData);
     
-    for (let i = 0; i < dogData[i]; i++) {
-      var dogCardImg = document.createElement('img')
-      dogCardImg.append(dogData[i].src)
+    for (let i = 0; i < dogData.length; i++) {
+      // var dogCardImg = document.createElement('img')
+      // var dogImg = document.createAttribute('src')
+      // dogCardImg.append(dogData[i].url)
+      imgArray.push(dogData[i].url)
+    }
+
+    for (let i = 0; i < catData.length; i++) {
+      // var catCardImg = document.createElement('img')
+      // var catImg = document.createAttribute('src')
+      // catCardImg.src(catData[i].url).append()
+      imgArray.push(catData[i].url)
+    }
+    console.log(imgArray);
+    // <div class="hidden duration-200 ease-linear" data-carousel-item>
+    //         <img class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="animal img">
+    //     </div>
+    for (let i = 0; i < carouselImgs.length; i++) {
+      
+      // var carouselDiv = document.createElement('div')
+      // var carouselImg = document.createElement('img')
+
+      // carouselDiv.setAttribute('class', 'hidden duration-200 ease-linear')
+      // if (i===0) {
+      //   carouselDiv.setAttribute('data-carousel-item', "active")
+      // } else {
+      //   carouselDiv.setAttribute('data-carousel-item', "")
+      // }
+      // carouselImg.setAttribute('class', 'absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2')
+      carouselImgs[i].setAttribute('src', imgArray[i])
+      // carouselDiv.append(carouselImg)
+      // carouselItems.append(carouselDiv)
     }
   })
   
+  
   // imgArray.push(dogData, catData)
 
-
-  for (let i = 0; i < catData[i]; i++) {
-    var catCardImg = document.createElement('img')
-    var catImg = document.createAttribute('src')
-    catCardImg.src(catData[i].url).append()
-  }
 
 })
 
