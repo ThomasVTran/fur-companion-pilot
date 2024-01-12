@@ -1,9 +1,47 @@
 var APINinjas = 'cjMugAovo7SNn+DtczTAMg==P49uxlggz9Z3SFRx'
-var dropdownAnswers = document.getElementById('dropdownAnswers')
-var dropdownAnswers2 = document.getElementById('dropdownAnswers2')
 var chosenPetType = 'cats'
 var petBreed = '5'
 var requestNinja = `https://api.api-ninjas.com/v1/${chosenPetType}?playfulness=${petBreed}`
+
+var theCatAPIKey = 'live_zqFTSSujc6nQSLlan4OKwI0Jzmsczq7iedMNANsZMjYf6yKUT8ee0A13DyhrzRHv'
+var theDogAPIKey = 'live_T2AySINQ9j3gOKvi0bkfD47zo8VSZAyo8bkluvwT1hCxQZig4DiIC951YSat8qEm'
+
+var imgArray = []
+
+fetch(`https://api.thecatapi.com/v1/images/search?limit=5&api_key=${theCatAPIKey}`)
+
+.then(function (catResponse) {
+  console.log(catResponse);
+  return catResponse.json()
+})
+.then(function (catData) {
+  console.log(catData);
+
+  fetch(`https://api.thedogapi.com/v1/images/search?limit=5&api_key=${theDogAPIKey}`)
+
+  .then(function (dogResponse) {
+    console.log(dogResponse);
+    return dogResponse.json()
+  })
+  .then(function (dogData) {
+    console.log(dogData);
+    
+    for (let i = 0; i < dogData[i]; i++) {
+      var dogCardImg = document.createElement('img')
+      dogCardImg.append(dogData[i].src)
+    }
+  })
+  
+  // imgArray.push(dogData, catData)
+
+
+  for (let i = 0; i < catData[i]; i++) {
+    var catCardImg = document.createElement('img')
+    var catImg = document.createAttribute('src')
+    catCardImg.src(catData[i].url).append()
+  }
+
+})
 
 function petType() {
 
@@ -127,7 +165,6 @@ for (let i = 0; i < catArray.length; i++) {
     option.textContent = catArray[i]
     catArray[i] = catArray[i].toLowerCase().split(" ").join("%20")
     option.value = catArray[i]
-    dropdownAnswers.append(option)
 }
 
     var dogArray = [
@@ -591,7 +628,6 @@ for (let i = 0; i < catArray.length; i++) {
         option.textContent = dogArray[i]
         dogArray[i] = dogArray[i].toLowerCase().split(" ").join("%20")
         option.value = dogArray[i]
-        dropdownAnswers2.append(option)
       }
 // need to create multiple question objects (cat, dog or both questions)
 
