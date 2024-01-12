@@ -691,8 +691,6 @@ var bothQuestions = [
     question: "18. I’m interested in adopting a ____.",
     dropdownOptions: ["Dog", "Cat"],
   },
-];
-var dogQuestions = [
   {
     question:
       "1. What friendliness level best suits your needs for your future pet?",
@@ -740,8 +738,6 @@ var dogQuestions = [
   //   questions: "9. dog breeds",
   //   dropdownOptions: dogArray,
   // },
-];
-var catQuestions = [
   {
     question: "1. What level of shedding for your pet are you looking for?",
     dropdownOptions: ["1", "2", "3", "4", "5"],
@@ -769,6 +765,7 @@ var catQuestions = [
   //   dropdownOptions: catArray,
   // },
 ];
+
 //this function will append the question answers and add textcontent
 function appendQuestions() {
   console.log(currentQuestion);
@@ -789,9 +786,11 @@ function appendQuestions() {
     // targetting the currentquestionobject's dropdown options we will use the foreach array method to run the function with the parementrs of option and index
     // which will be used later in this method/function
     currentQuestionObject.dropdownOptions.forEach(function (option, index) {
+      // option represents the each element in the array, index
       // the variable option element is using the create element method to create an option element (earlier we targetd the dropdownAnswers element so it knows where to go)
       // the value attribute of the option element will be given a unique value 1 higher than the last
       var optionElement = document.createElement("option");
+      // optionElement is now creating a new option element with the next index
       optionElement.value = "option" + (index + 1);
       //the text content is taken from the option variable we just created then based on the dropdownoptions array the options are appended for each position in the array
       optionElement.textContent = option;
@@ -800,16 +799,10 @@ function appendQuestions() {
     // the current question count is updated + 1 each time
     currentQuestion++;
     console.log(currentQuestion);
-    console.log("in both if statement");
-  } else if (currentQuestion === 17) {
-    var selectedOption = document.getElementById("dropdownAnswers").value;
-    if (selectedOption === "Dog") {
-      askDogQuestions();
-    } else if (selectedOption === "Cat") {
-      askCatQuestions();
-    }
-  }
-}
+    console.log("in both if statement")
+}}
+
+function
 
 // calling the function to get the question object into the form
 appendQuestions();
@@ -821,47 +814,47 @@ document.querySelector("form").addEventListener("submit", function (event) {
   appendQuestions();
 });
 
-function askDogQuestions() {
-  currentQuestion = 0;
-  var dogQuestionLength = dogQuestion.Length;
-  if (currentQuestion < (dogQuestionLength -= 17)){
-  var currentQuestionObject = dogQuestions[currentQuestion];
-  var questionPlaceholder = document.getElementById("questionPlaceholder");
-  var dropdownAnswers = document.getElementById("dropdownAnswers");
+// function askDogQuestions() {
+//   currentQuestion = 0;
+//   var dogQuestionLength = dogQuestion.Length;
+//   if (currentQuestion < (dogQuestionLength -= 17)){
+//   var currentQuestionObject = dogQuestions[currentQuestion];
+//   var questionPlaceholder = document.getElementById("questionPlaceholder");
+//   var dropdownAnswers = document.getElementById("dropdownAnswers");
 
-  questionPlaceholder.textContent = currentQuestionObject.questions;
-  dropdownAnswers.innerHTML = "";
-  currentQuestionObject.dropdownOptions.forEach(function (option, index) {
-    var optionElement = document.createElement("option");
-    optionElement.value = "option" + (index + 1);
-    optionElement.textContent = option;
-    dropdownAnswers.appendChild(optionElement);
+//   questionPlaceholder.textContent = currentQuestionObject.questions;
+//   dropdownAnswers.innerHTML = "";
+//   currentQuestionObject.dropdownOptions.forEach(function (option, index) {
+//     var optionElement = document.createElement("option");
+//     optionElement.value = "option" + (index + 1);
+//     optionElement.textContent = option;
+//     dropdownAnswers.appendChild(optionElement);
   
-  })
-};
-  currentQuestion++;
-  console.log("asking dog stuff");
-  document.querySelector("form").addEventListener("submit", function (event) {
-    event.preventDefault();
-    appendQuestions();
-})
-};
-function askCatQuestions() {
-  currentQuestion = 0;
-  if (currentQuestion < (catQuestions.length -= 17)){
-    var currentQuestionObject = catQuestions[currentQuestion];
-  var questionPlaceholder = document.getElementById("questionPlaceholder");
-  var dropdownAnswers = document.getElementById("dropdownAnswers");
+//   })
+// };
+//   currentQuestion++;
+//   console.log("asking dog stuff");
+//   document.querySelector("form").addEventListener("submit", function (event) {
+//     event.preventDefault();
+//     appendQuestions();
+// })
+// };
+// function askCatQuestions() {
+//   currentQuestion = 0;
+//   if (currentQuestion < (catQuestions.length -= 17)){
+//     var currentQuestionObject = catQuestions[currentQuestion];
+//   var questionPlaceholder = document.getElementById("questionPlaceholder");
+//   var dropdownAnswers = document.getElementById("dropdownAnswers");
 
-  questionPlaceholder.textContent = currentQuestionObject.questions;
-  dropdownAnswers.innerHTML = "";
-  currentQuestionObject.dropdownOptions.forEach(function (option, index) {
-    var optionElement = document.createElement("option");
-    optionElement.value = "option" + (index + 1);
-    optionElement.textContent = option;
-    dropdownAnswers.appendChild(optionElement);
-  })
-};
-  currentQuestion++;
-  console.log("asking cat stuff");
-}
+//   questionPlaceholder.textContent = currentQuestionObject.questions;
+//   dropdownAnswers.innerHTML = "";
+//   currentQuestionObject.dropdownOptions.forEach(function (option, index) {
+//     var optionElement = document.createElement("option");
+//     optionElement.value = "option" + (index + 1);
+//     optionElement.textContent = option;
+//     dropdownAnswers.appendChild(optionElement);
+//   })
+// };
+//   currentQuestion++;
+//   console.log("asking cat stuff");
+// }
