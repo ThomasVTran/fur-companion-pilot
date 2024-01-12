@@ -1,11 +1,31 @@
 *{
     font-family: 'Gothic A1', sans-serif;
+    border: 2px solid red !important;
 }
 
 header{
-    background-color: rgb(217 140 74);
+    background-color: #e0d2c5;
+    color: #d98c4a !important;
 }
 
+.logo {
+    width: 35%;
+    height: 35%;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* Styles for h3 in resultsDog.html and resultsCat.html */
+h3 {
+    font-size: larger !important;
+    font-weight: bold !important;
+}
+
+/* Styles for h5 in resultsDog.html and resultsCat.html */
+h5 {
+    font-size: large !important;
+    font-weight: bold !important;
+}
 .container {
     max-width: 100% !important;
 }

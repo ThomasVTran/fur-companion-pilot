@@ -679,6 +679,11 @@ function appendQuestions() {
     //the question placeholder is a label element, we will add the question text by saving the text content as the question at the location
     // saved by the currentquestionobject variable
     questionPlaceholder.textContent = currentQuestionObject.question;
+
+    //local storage for current question
+    // console.log(localStorage.setItem(currentQuestionObject, JSON.stringify(currentQuestionObject));;
+    // console.log(localStorage.getItem("questionPlaceholder"));
+
     dropdownAnswers.innerHTML = "";
     //the currentQuestionObject has (question and dropdown option key value pairs)
     // targetting the currentquestionobject's dropdown options we will use the foreach array method to run the function with the parementrs of option and index
@@ -693,6 +698,10 @@ function appendQuestions() {
       //the text content is taken from the option variable we just created then based on the dropdownoptions array the options are appended for each position in the array
       optionElement.textContent = option;
       dropdownAnswers.appendChild(optionElement);
+
+        //local storage for current drop down question
+        // console.log(localStorage.setItem(dropdownAnswers, JSON.stringify(optionElement));;
+        // console.log(localStorage.getItem("optionElement"));
     });
     // the current question count is updated + 1 each time
     currentQuestion++;
