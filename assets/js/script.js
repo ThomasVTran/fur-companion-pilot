@@ -1,14 +1,17 @@
 var APINinjas = 'cjMugAovo7SNn+DtczTAMg==P49uxlggz9Z3SFRx'
 var chosenPetType = 'cats'
 var petBreed = '5'
-var carouselImgs = document.querySelectorAll('.animal-image')
-var carouselItems = document.getElementById('carousel-items')
+var catCarouselImgs = document.querySelectorAll('.cat-image')
+var dogCarouselImgs = document.querySelectorAll('.dog-image')
+// var carouselItems = document.getElementById('carousel-items')
 var requestNinja = `https://api.api-ninjas.com/v1/${chosenPetType}?playfulness=${petBreed}`
 
+
+// random dog and cat image carousel
 var theCatAPIKey = 'live_zqFTSSujc6nQSLlan4OKwI0Jzmsczq7iedMNANsZMjYf6yKUT8ee0A13DyhrzRHv'
 var theDogAPIKey = 'live_T2AySINQ9j3gOKvi0bkfD47zo8VSZAyo8bkluvwT1hCxQZig4DiIC951YSat8qEm'
 
-var imgArray = []
+var imgCatArray = []
 
 fetch(`https://api.thecatapi.com/v1/images/search?limit=5&api_key=${theCatAPIKey}`)
 
@@ -18,57 +21,37 @@ fetch(`https://api.thecatapi.com/v1/images/search?limit=5&api_key=${theCatAPIKey
 })
 .then(function (catData) {
   console.log(catData);
-
-  fetch(`https://api.thedogapi.com/v1/images/search?limit=5&api_key=${theDogAPIKey}`)
-
-  .then(function (dogResponse) {
-    console.log(dogResponse);
-    return dogResponse.json()
-  })
-  .then(function (dogData) {
-    console.log(dogData);
-    
-    for (let i = 0; i < dogData.length; i++) {
-      // var dogCardImg = document.createElement('img')
-      // var dogImg = document.createAttribute('src')
-      // dogCardImg.append(dogData[i].url)
-      imgArray.push(dogData[i].url)
-    }
-
-    for (let i = 0; i < catData.length; i++) {
-      // var catCardImg = document.createElement('img')
-      // var catImg = document.createAttribute('src')
-      // catCardImg.src(catData[i].url).append()
-      imgArray.push(catData[i].url)
-    }
-    console.log(imgArray);
-    // <div class="hidden duration-200 ease-linear" data-carousel-item>
-    //         <img class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="animal img">
-    //     </div>
-    for (let i = 0; i < carouselImgs.length; i++) {
-      
-      // var carouselDiv = document.createElement('div')
-      // var carouselImg = document.createElement('img')
-
-      // carouselDiv.setAttribute('class', 'hidden duration-200 ease-linear')
-      // if (i===0) {
-      //   carouselDiv.setAttribute('data-carousel-item', "active")
-      // } else {
-      //   carouselDiv.setAttribute('data-carousel-item', "")
-      // }
-      // carouselImg.setAttribute('class', 'absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2')
-      carouselImgs[i].setAttribute('src', imgArray[i])
-      // carouselDiv.append(carouselImg)
-      // carouselItems.append(carouselDiv)
-    }
-  })
   
-  
-  // imgArray.push(dogData, catData)
+  for (let i = 0; i < catData.length; i++) {
+    imgCatArray.push(catData[i].url)
+  }
 
-
+  for (let i = 0; i < catCarouselImgs.length; i++) {
+    catCarouselImgs[i].setAttribute('src', imgCatArray[i])
+  }
 })
 
+var imgDogArray = []
+
+fetch(`https://api.thedogapi.com/v1/images/search?limit=5&api_key=${theDogAPIKey}`)
+
+.then(function (dogResponse) {
+  console.log(dogResponse);
+  return dogResponse.json()
+})
+.then(function (dogData) {
+  console.log(dogData);
+  
+  for (let i = 0; i < dogData.length; i++) {
+    imgDogArray.push(dogData[i].url)
+  }
+    for (let i = 0; i < dogCarouselImgs.length; i++) {
+      dogCarouselImgs[i].setAttribute('src', imgDogArray[i])
+    }
+   console.log(imgDogArray);
+ })
+
+//  dog or cat for ninjaAPI
 function petType() {
   fetch(requestNinja, {
     headers: {
