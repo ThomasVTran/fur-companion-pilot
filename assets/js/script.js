@@ -666,14 +666,6 @@ var bothQuestions = [
   },
 ];
 
-// function formInput(event) {
-//   event.preventDefault()
-// }
-// // function saveData (){
-// //   localStorage.setItem("UserInput", JSON.stringify(bothQUestions.dropdownAnswers.value));
-// //   return localStorage.getItem("User Answer");
-// // }
-
 
 function appendQuestions() {
   console.log(currentQuestion);
@@ -697,7 +689,10 @@ function appendQuestions() {
       console.log(option);
       dropdownAnswers.appendChild(optionElement);
     });
-    console.log(localStorage.setItem(document.querySelector('option').text);
+    
+    // need to get local storage to save on submit and not replace the last key value pair.
+
+    console.log(localStorage.setItem(document.querySelector('option').text , JSON.stringify(document.querySelector('option').text)));
     currentQuestion++;
     console.log(currentQuestion);
     console.log("in both if statement");
