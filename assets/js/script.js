@@ -4,7 +4,6 @@ var petBreed = '5'
 var carouselImgs = document.querySelectorAll('.animal-image')
 var carouselItems = document.getElementById('carousel-items')
 var requestNinja = `https://api.api-ninjas.com/v1/${chosenPetType}?playfulness=${petBreed}`
-
 var theCatAPIKey = 'live_zqFTSSujc6nQSLlan4OKwI0Jzmsczq7iedMNANsZMjYf6yKUT8ee0A13DyhrzRHv'
 var theDogAPIKey = 'live_T2AySINQ9j3gOKvi0bkfD47zo8VSZAyo8bkluvwT1hCxQZig4DiIC951YSat8qEm'
 
@@ -185,13 +184,13 @@ var catArray = [
   "Ukrainian Levkoy",
 ];
 // cat loop for breed drop down
-for (let i = 0; i < catArray.length; i++) {
-  var option = document.createElement("option");
-  option.textContent = catArray[i];
-  catArray[i] = catArray[i].toLowerCase().split(" ").join("%20");
-  option.value = catArray[i];
-  dropdownAnswers.append(option);
-}
+// for (let i = 0; i < catArray.length; i++) {
+//   var option = document.createElement("option");
+//   option.textContent = catArray[i];
+//   catArray[i] = catArray[i].toLowerCase().split(" ").join("%20");
+//   option.value = catArray[i];
+//   dropdownAnswers.append(option);
+// }
 
 var dogArray = [
   "Affenpinscher",
@@ -648,341 +647,56 @@ var dogArray = [
   "Yorkshire Terrier",
   "Šarplaninac",
 ];
-// dog loop for the breed drop down
-for (let i = 0; i < dogArray.length; i++) {
-  var option = document.createElement("option");
-  option.textContent = dogArray[i];
-  dogArray[i] = dogArray[i].toLowerCase().split(" ").join("%20");
-  option.value = dogArray[i];
-  dropdownAnswers2.append(option);
+console.log(dogArray)
+
+console
+
+function petType() {
+  fetch(requestNinja, {
+    headers: {
+      "X-Api-Key": "cjMugAovo7SNn+DtczTAMg==P49uxlggz9Z3SFRx",
+    },
+    contentType: "application/json",
+  })
+    .then(function (response) {
+      console.log(response);
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+    });
 }
-// dog loop for the breed drop down
-var dogFunction = function () {
-  for (let i = 0; i < dogArray.length; i++) {
-    var option = document.createElement("option");
-    option.textContent = dogArray[i];
-    dogArray[i] = dogArray[i].toLowerCase().split(" ").join("%20");
-    option.value = dogArray[i];
-  }
-};
-// need to create multiple question objects (cat, dog or both questions)
+petType();
 
 
 
 
+function populateDogArray(){
+for (var i = 0; i < dogArray.length; i++) {
+  var option = document.createElement('option');
+  console.log(('option').value)
+  option.value = dogArray[i];
+  option.text = dogArray[i];
+  document.getElementById('breedDropdown').add(option);
+}}
+populateDogArray();
 
+function saveToLocalStorage() {
 
-
-
-// var bothQuestions = [
-//   {
-//     question: "1. Dog breeds",
-//     dropdownOptions: dogArray,
-//   },
-//   {
-//     question: "2. Cat breeds",
-//     dropdownOptions: catArray,
-//   },
-//   {
-//     question: "3 I’m interested in adopting a ____.",
-//     dropdownOptions: ["Dog", "Cat"],
-//   },
-//   {
-//     question: "4. How much free time do you have to devote to a pet? (The Playfulness of an animal typically demands more time for attention.)",
-//     dropdownOptions: [
-//       "30 minutes a day",
-//       "2 hours a day",
-//       "4 hours a day",
-//       "More than 4 hours a day",
-//     ],
-//   },
-//   {
-//     question: "5. How important is it that the pet is children-friendly?",
-//     dropdownOptions: ["1", "2", "3", "4", "5"],
-//   },
-//   {
-//     question: "6. What level of grooming is most comfortable for you?",
-//     dropdownOptions: ["1", "2", "3", "4", "5"],
-//   },
-//   {
-//     question: "7. What energy level is the best fit for you?(playfulness)",
-//     dropdownOptions: ["1", "2", "3", "4", "5"],
-//   },
-
-//   {
-//     question: "8. What level of trainability are you looking for?(Intelligence)",
-//     dropdownOptions: ["1", "2", "3", "4", "5"],
-//   },
+  var selects = document.querySelectorAll('select[data-current-question]');
   
-//   {
-//     question: "11. There are _____ as part of my HOA or lease.",
-//     dropdownOptions: ["Dog restrictions", "No dog restrictions"],
-//   },
-
-//   {
-//     question: "12. What level of barking is acceptable to you?",
-//     dropdownOptions: ["1", "2", "3", "4", "5"],
-//   },
-// ];
-
-// function appendQuestions() {
-//   console.log(currentQuestion);
-//   console.log(bothQuestions.length);
-
-//   if (currentQuestion < bothQuestions.length) {
-//     var currentQuestionObject = bothQuestions[currentQuestion];
-
-//     var questionPlaceholder = document.getElementById("questionPlaceholder");
-//     var dropdownAnswers = document.getElementById("dropdownAnswers");
-//     console.log(dropdownAnswers.value );
-//     questionPlaceholder.textContent = currentQuestionObject.question;
-//     dropdownAnswers.innerHTML = "";
-
-//     currentQuestionObject.dropdownOptions.forEach(function (option, index) {
-//       var optionElement = document.createElement("option");
-
-//       optionElement.value = "option" + (index + 1);
-
-//       optionElement.textContent = option;
-//       // console.log(option);
-//       dropdownAnswers.appendChild(optionElement);
-//     });
+  
+  selects.forEach(select => {
+    const currentQuestion = select.getAttribute('data-current-question');
+    const selectedValue = select.value;
     
-//     // need to get local storage to save on submit and not replace the last key value pair.
-
-//     console.log(localStorage.setItem(document.querySelector('option').text , JSON.stringify(document.querySelector('option').text)));
-//     currentQuestion++;
-//     console.log(currentQuestion);
-//     console.log("in both if statement");
     
-//   }
-// }
+    localStorage.setItem(currentQuestion, selectedValue);
+  });
+}
 
-// calling the function to get the question object into the form
-appendQuestions();
-
-//now we are calling attention to the form element, adding an event listener for that submit button and then running a function to re run the
-// append questions function each time submit is clicked, adding 1 to the question value each time and cycling the questions
 document.querySelector("form").addEventListener("submit", function (event) {
   event.preventDefault();
-  appendQuestions();
-  console.log(selectedOption)
-  console.log(bothQuestions[currentQuestion].dropdownOptions.value)
-  console.log(event.target.selectedOption)
- localStorage.setItem("UserInput", JSON.stringify(bothQuestions[currentQuestion].dropdownOptions.value));
+  saveToLocalStorage();
 });
 
-// function askDogQuestions() {
-//   currentQuestion = 0;
-//   var dogQuestionLength = dogQuestion.Length;
-//   if (currentQuestion < (dogQuestionLength -= 17)){
-//   var currentQuestionObject = dogQuestions[currentQuestion];
-//   var questionPlaceholder = document.getElementById("questionPlaceholder");
-//   var dropdownAnswers = document.getElementById("dropdownAnswers");
-
-//   questionPlaceholder.textContent = currentQuestionObject.questions;
-//   dropdownAnswers.innerHTML = "";
-//   currentQuestionObject.dropdownOptions.forEach(function (option, index) {
-//     var optionElement = document.createElement("option");
-//     optionElement.value = "option" + (index + 1);
-//     optionElement.textContent = option;
-//     dropdownAnswers.appendChild(optionElement);
-
-//   })
-// };
-//   currentQuestion++;
-//   console.log("asking dog stuff");
-//   document.querySelector("form").addEventListener("submit", function (event) {
-//     event.preventDefault();
-//     appendQuestions();
-// })
-// };
-// function askCatQuestions() {
-//   currentQuestion = 0;
-//   if (currentQuestion < (catQuestions.length -= 17)){
-//     var currentQuestionObject = catQuestions[currentQuestion];
-//   var questionPlaceholder = document.getElementById("questionPlaceholder");
-//   var dropdownAnswers = document.getElementById("dropdownAnswers");
-
-//   questionPlaceholder.textContent = currentQuestionObject.questions;
-//   dropdownAnswers.innerHTML = "";
-//   currentQuestionObject.dropdownOptions.forEach(function (option, index) {
-//     var optionElement = document.createElement("option");
-//     optionElement.value = "option" + (index + 1);
-//     optionElement.textContent = option;
-//     dropdownAnswers.appendChild(optionElement);
-//   })
-// };
-//   currentQuestion++;
-//   console.log("asking cat stuff");
-// }
-// var bothQuestions = [
-//   {
-//     question: "1 I’m interested in adopting a ____.",
-//     dropdownOptions: ["Dog", "Cat"],
-//   },
-//   {
-//     question: "2. Who lives with you?",
-//     dropdownOptions: ["Single", "Children", "Married", "Roommates"],
-//   },
-//   {
-//     question: "3. How much free time do you have to devote to a pet?",
-//     dropdownOptions: [
-//       "30 minutes a day",
-//       "2 hours a day",
-//       "4 hours a day",
-//       "More than 4 hours a day",
-//     ],
-//   },
-//   {
-//     question: "4. How important is it that the pet is children-friendly?",
-//     dropdownOptions: ["1", "2", "3", "4", "5"],
-//   },
-//   {
-//     question: "5. How long can you allocate to play with your new pet?",
-//     dropdownOptions: [
-//       "30 minutes a day (cat answer)",
-//       "1 hour a day (dog answer)",
-//       "3 hours a day (dog answer)",
-//     ],
-//   },
-//   {
-//     question: "6. Are you comfortable with giving medication to your pet?",
-//     dropdownOptions: ["Yes", "No"],
-//   },
-//   {
-//     question: "7. What level of grooming is most comfortable for you?",
-//     dropdownOptions: ["1", "2", "3", "4", "5"],
-//   },
-//   {
-//     question: "8. What level of shedding for your pet are you looking for?",
-//     dropdownOptions: ["1", "2", "3", "4", "5"],
-//   },
-//   {
-//     question: "9. My future pet must be _____.",
-//     dropdownOptions: ["Allergy-friendly", "House-trained"],
-//   },
-//   {
-//     question:
-//       "10. What friendliness level best suits your needs for your future pet?",
-//     dropdownOptions: ["1", "2", "3", "4", "5"],
-//   },
-//   {
-//     question: "11. What level of playfulness is best for you and your pet?",
-//     dropdownOptions: ["1", "2", "3", "4", "5"],
-//   },
-//   {
-//     question: "13. What energy level is the best fit for you?",
-//     dropdownOptions: ["1", "2", "3", "4", "5"],
-//   },
-//   {
-//     question: "14. How much time can you devote to cleaning after your pet?",
-//     dropdownOptions: ["30 minutes a day", "1 hour a day", "2 hours a day"],
-//   },
-//   {
-//     question: "15. I am a _____ pet owner.",
-//     dropdownOptions: ["First-time", "Previous", "Current"],
-//   },
-//   {
-//     question: "16. I currently have _____.",
-//     dropdownOptions: [
-//       "No dog(s) or cat(s)",
-//       "Cat(s)",
-//       "Dog(s)",
-//       "Dog(s) and cat(s)",
-//     ],
-//   },
-//   {
-//     question: "17. How long can you allocate to play with your new pet?",
-//     dropdownOptions: [
-//       "30 minutes a day (cat answer)",
-//       "1 hour a day (dog answer)",
-//       "3 hours a day (dog answer)",
-//     ],
-//   },
-//   {
-//     question: "18. I am wanting to adopt for _____.",
-//     dropdownOptions: ["Myself", "My family"],
-//   },
-//   {
-//     question: "19. How important is it that the pet is children-friendly?",
-//     dropdownOptions: ["1", "2", "3", "4", "5"],
-//   },
-//   {
-//     question: "20. I’m interested in adopting a ____.",
-//     dropdownOptions: ["Dog", "Cat"],
-//   },
-//   {
-//     question:
-//       "21. What friendliness level best suits your needs for your future pet?",
-//     dropdownOptions: ["1", "2", "3", "4", "5"],
-//   },
-//   {
-//     question: "22. What level of trainability are you looking for?",
-//     dropdownOptions: ["1", "2", "3", "4", "5"],
-//   },
-//   {
-//     question: "23. What level of barking is acceptable to you?",
-//     dropdownOptions: ["1", "2", "3", "4", "5"],
-//   },
-//   {
-//     question: "24. What level of shedding for your pet are you looking for?",
-//     dropdownOptions: ["1", "2", "3", "4", "5"],
-//   },
-//   {
-//     question: "25. My ideal dog is _____.",
-//     dropdownOptions: [
-//       "No age preference",
-//       "A puppy",
-//       "A young pet (1-6 years)",
-//       "A senior pet (6+ years)",
-//     ],
-//   },
-//   {
-//     question: "26. There are _____ as part of my HOA or lease.",
-//     dropdownOptions: ["Dog restrictions", "No dog restrictions"],
-//   },
-//   {
-//     question: "27. My HOA or lease will not allow a dog that is ____.",
-//     dropdownOptions: [
-//       "No size restriction",
-//       "Over 25 lbs",
-//       "Over 60 lbs",
-//       "Over 100 lbs",
-//     ],
-//   },
-//   {
-//     question: "28. What level of shedding for your pet are you looking for?",
-//     dropdownOptions: ["1", "2", "3", "4", "5"],
-//   },
-//   // {
-//   //   questions: "29. dog breeds",
-//   //   dropdownOptions: dogArray,
-//   // },
-//   {
-//     question: "30. What level of shedding for your pet are you looking for?",
-//     dropdownOptions: ["1", "2", "3", "4", "5"],
-//   },
-//   {
-//     question: "31. My ideal  cat is _____.",
-//     dropdownOptions: [
-//       "No age preference",
-//       "A puppy/kitten",
-//       "A young pet (1-6 years)",
-//       "A senior pet (6+ years)",
-//     ],
-//   },
-//   {
-//     question: "33. What is your optimal pet budget?",
-//     dropdownOptions: [
-//       "$755 annually",
-//       "$1,118 annually",
-//       "$3,145 annually",
-//       "$4,095 annually",
-//     ],
-//   },
-//   // {
-//   //   question: "34. cat breeds",
-//   //   dropdownOptions: catArray,
-//   // },
-// ];
