@@ -44,6 +44,7 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 
 Tutorial for submit forms answers to local storage:
 https://stackoverflow.com/questions/10425482/save-data-to-localstorage-when-form-is-submitted
+https://stackoverflow.com/questions/40711887/handling-form-submission-with-javascript-how-to-give-user-another-chance
 
 Here are the collaborators:
 - https://github.com/ThomasVTran -- Thomas
