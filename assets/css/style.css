@@ -1,11 +1,31 @@
 *{
     font-family: 'Gothic A1', sans-serif;
+    border: 2px solid red !important;
 }
 
 header{
-    background-color: rgb(217 140 74);
+    background-color: #e0d2c5;
+    color: #d98c4a !important;
 }
 
+.logo {
+    width: 35%;
+    height: 35%;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* Styles for h3 in resultsDog.html and resultsCat.html */
+h3 {
+    font-size: larger !important;
+    font-weight: bold !important;
+}
+
+/* Styles for h5 in resultsDog.html and resultsCat.html */
+h5 {
+    font-size: large !important;
+    font-weight: bold !important;
+}
 .container {
     max-width: 100% !important;
 }
@@ -41,3 +61,31 @@ header{
       inset -2px -2px 3px rgb(255 255 255 / 60%),
       inset 2px 2px 3px rgb(0 0 0 / 60%);
   }
+  
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background: #fff;
+  padding: 20px;
+  width: 300px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+#modalQuestion {
+  margin-bottom: 10px;
+}
+
+#modalBtn {
+  cursor: pointer;
+}

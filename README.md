@@ -10,10 +10,10 @@ SO THAT I can empower myself with knowledge to make a confident, no regret decis
 
 Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
 
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
+- What was your motivation? The motivation of this project is to promote adoptions of cats and dogs.
+- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.") We built this project to understand the agile method in a group setting.
+- What problem does it solve? The problem to solve in this project is to guide the user in what would pet would be best for them to adopt.
+- What did you learn? We learned how to user tailwind as our new css framework, incorporated two new APIs, and worked on question logic and local storage.
 
 Fur Companion Pilot is an innovative application designed to aid in the pet selection process. Your Fur Companion Pilot will provide you with insight to be make the process of researching if and which fur companion is right for you. By offering a owner oriented approach to determining the potential breeds that have been identified as an appropriate match based on your needs, the needs of different species/breeds and your lifestyle.
 
@@ -42,29 +42,25 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 
 ## Credits
 
+Tutorial for submit forms answers to local storage:
 https://stackoverflow.com/questions/10425482/save-data-to-localstorage-when-form-is-submitted
+https://stackoverflow.com/questions/40711887/handling-form-submission-with-javascript-how-to-give-user-another-chance
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option
 
-
-
-List your collaborators, if any, with links to their GitHub profiles.
-
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
-
-If you followed tutorials, include links to those here as well.
+Here are the collaborators:
+- https://github.com/ThomasVTran -- Thomas
+- https://github.com/0Clark30 -- Austin
+- https://github.com/harleysherman -- Harley
 
 ## License
 
-The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
+There is no license at this time.
 
 ---
 
-🏆 The previous sections are the bare minimum, and your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
-
 ## Badges
 
-![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
-
-Badges aren't necessary, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
+There are no badges at this time.
 
 ## Features
 
@@ -72,7 +68,7 @@ If your project has a lot of features, list them here.
 
 ## How to Contribute
 
-If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.
+There are no contributions at this time.
 
 ## Tests
 
