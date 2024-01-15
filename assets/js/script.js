@@ -1,11 +1,197 @@
-var APINinjas = "cjMugAovo7SNn+DtczTAMg==P49uxlggz9Z3SFRx";
-var chosenPetType = "cats";
-var petBreed = "5";
-var requestNinja = `https://api.api-ninjas.com/v1/${chosenPetType}?playfulness=${petBreed}`;
+var APINinjas = 'cjMugAovo7SNn+DtczTAMg==P49uxlggz9Z3SFRx'
+var chosenPetType = 'cats'
+var petBreed = '5'
+var carouselImgs = document.querySelectorAll('.animal-image')
+var carouselItems = document.getElementById('carousel-items')
+var requestNinja = `https://api.api-ninjas.com/v1/${chosenPetType}?playfulness=${petBreed}`
 
-var answeredValue = 0;
-var questionPlaceEl = document.getElementById("questionPlaceholder"); //targeted the questionplaceholder by ID
-var breedDropdown = document.getElementById("breedDropdown")
+var theCatAPIKey = 'live_zqFTSSujc6nQSLlan4OKwI0Jzmsczq7iedMNANsZMjYf6yKUT8ee0A13DyhrzRHv'
+var theDogAPIKey = 'live_T2AySINQ9j3gOKvi0bkfD47zo8VSZAyo8bkluvwT1hCxQZig4DiIC951YSat8qEm'
+
+var imgArray = []
+
+fetch(`https://api.thecatapi.com/v1/images/search?limit=5&api_key=${theCatAPIKey}`)
+
+.then(function (catResponse) {
+  console.log(catResponse);
+  return catResponse.json()
+})
+.then(function (catData) {
+  console.log(catData);
+
+  fetch(`https://api.thedogapi.com/v1/images/search?limit=5&api_key=${theDogAPIKey}`)
+
+  .then(function (dogResponse) {
+    console.log(dogResponse);
+    return dogResponse.json()
+  })
+  .then(function (dogData) {
+    console.log(dogData);
+    
+    for (let i = 0; i < dogData.length; i++) {
+      // var dogCardImg = document.createElement('img')
+      // var dogImg = document.createAttribute('src')
+      // dogCardImg.append(dogData[i].url)
+      imgArray.push(dogData[i].url)
+    }
+
+    for (let i = 0; i < catData.length; i++) {
+      // var catCardImg = document.createElement('img')
+      // var catImg = document.createAttribute('src')
+      // catCardImg.src(catData[i].url).append()
+      imgArray.push(catData[i].url)
+    }
+    console.log(imgArray);
+    // <div class="hidden duration-200 ease-linear" data-carousel-item>
+    //         <img class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="animal img">
+    //     </div>
+    for (let i = 0; i < carouselImgs.length; i++) {
+      
+      // var carouselDiv = document.createElement('div')
+      // var carouselImg = document.createElement('img')
+
+      // carouselDiv.setAttribute('class', 'hidden duration-200 ease-linear')
+      // if (i===0) {
+      //   carouselDiv.setAttribute('data-carousel-item', "active")
+      // } else {
+      //   carouselDiv.setAttribute('data-carousel-item', "")
+      // }
+      // carouselImg.setAttribute('class', 'absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2')
+      carouselImgs[i].setAttribute('src', imgArray[i])
+      // carouselDiv.append(carouselImg)
+      // carouselItems.append(carouselDiv)
+    }
+  })
+  
+  
+  // imgArray.push(dogData, catData)
+
+
+})
+
+function petType() {
+  fetch(requestNinja, {
+    headers: {
+      "X-Api-Key": "cjMugAovo7SNn+DtczTAMg==P49uxlggz9Z3SFRx",
+    },
+    contentType: "application/json",
+  })
+    .then(function (response) {
+      console.log(response);
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+    });
+}
+petType();
+
+var catArray = [
+  "Abyssinian",
+  "Aegean",
+  "American Curl",
+  "American Bobtail",
+  "American Shorthair",
+  "American Wirehair",
+  "Arabian Mau",
+  "Australian Mist",
+  "Asian",
+  "Asian Semi-longhair",
+  "Balinese",
+  "Bambino",
+  "Bengal",
+  "Birman",
+  "Bombay",
+  "Brazilian Shorthair",
+  "British Semi-longhair",
+  "British Shorthair",
+  "British Longhair",
+  "Burmese",
+  "Burmilla",
+  "California Spangled",
+  "Chantilly-Tiffany",
+  "Chartreux",
+  "Chausie",
+  "Cheetoh",
+  "Colorpoint Shorthair",
+  "Cornish Rex",
+  "Cymric",
+  "Cyprus",
+  "Devon Rex",
+  "Donskoy",
+  "Dragon Li",
+  "Dwarf cat",
+  "Egyptian Mau",
+  "European Shorthair",
+  "Exotic Shorthair",
+  "Foldex",
+  "German Rex",
+  "Havana Brown",
+  "Highlander",
+  "Himalayan",
+  "Japanese Bobtail",
+  "Javanese",
+  "Karelian Bobtail",
+  "Khao Manee",
+  "Korat",
+  "Korean Bobtail",
+  "Korn Ja",
+  "Kurilian Bobtail",
+  "LaPerm",
+  "Lykoi",
+  "Maine Coon",
+  "Manx",
+  "Mekong Bobtail",
+  "Minskin",
+  "Munchkin",
+  "Nebelung",
+  "Napoleon",
+  "Norwegian Forest",
+  "Ocicat",
+  "Ojos Azules",
+  "Oregon Rex",
+  "Oriental Bicolor",
+  "Oriental Shorthair",
+  "Oriental Longhair",
+  "PerFold",
+  "Persian",
+  "Peterbald",
+  "Pixie-bob",
+  "Raas",
+  "Ragamuffin",
+  "Ragdoll",
+  "Russian Blue",
+
+  "Sam Sawet",
+  "Savannah",
+  "Scottish Fold",
+  "Selkirk Rex",
+  "Serengeti",
+  "Serrade petit",
+  "Siamese",
+  "Siberian",
+  "Singapura",
+  "Snowshoe",
+  "Sokoke",
+  "Somali",
+  "Sphynx",
+  "Suphalak",
+  "Thai",
+  "Thai Lilac",
+  "Tonkinese",
+  "Toyger",
+  "Turkish Angora",
+  "Turkish Van",
+  "Ukrainian Levkoy",
+];
+// cat loop for breed drop down
+for (let i = 0; i < catArray.length; i++) {
+  var option = document.createElement("option");
+  option.textContent = catArray[i];
+  catArray[i] = catArray[i].toLowerCase().split(" ").join("%20");
+  option.value = catArray[i];
+  dropdownAnswers.append(option);
+}
 
 var dogArray = [
   "Affenpinscher",
@@ -462,268 +648,122 @@ var dogArray = [
   "Yorkshire Terrier",
   "Šarplaninac",
 ];
-console.log(dogArray)
-var catArray = [
-  "Abyssinian",
-  "Aegean",
-  "American Curl",
-  "American Bobtail",
-  "American Shorthair",
-  "American Wirehair",
-  "Arabian Mau",
-  "Australian Mist",
-  "Asian",
-  "Asian Semi-longhair",
-  "Balinese",
-  "Bambino",
-  "Bengal",
-  "Birman",
-  "Bombay",
-  "Brazilian Shorthair",
-  "British Semi-longhair",
-  "British Shorthair",
-  "British Longhair",
-  "Burmese",
-  "Burmilla",
-  "California Spangled",
-  "Chantilly-Tiffany",
-  "Chartreux",
-  "Chausie",
-  "Cheetoh",
-  "Colorpoint Shorthair",
-  "Cornish Rex",
-  "Cymric",
-  "Cyprus",
-  "Devon Rex",
-  "Donskoy",
-  "Dragon Li",
-  "Dwarf cat",
-  "Egyptian Mau",
-  "European Shorthair",
-  "Exotic Shorthair",
-  "Foldex",
-  "German Rex",
-  "Havana Brown",
-  "Highlander",
-  "Himalayan",
-  "Japanese Bobtail",
-  "Javanese",
-  "Karelian Bobtail",
-  "Khao Manee",
-  "Korat",
-  "Korean Bobtail",
-  "Korn Ja",
-  "Kurilian Bobtail",
-  "LaPerm",
-  "Lykoi",
-  "Maine Coon",
-  "Manx",
-  "Mekong Bobtail",
-  "Minskin",
-  "Munchkin",
-  "Nebelung",
-  "Napoleon",
-  "Norwegian Forest",
-  "Ocicat",
-  "Ojos Azules",
-  "Oregon Rex",
-  "Oriental Bicolor",
-  "Oriental Shorthair",
-  "Oriental Longhair",
-  "PerFold",
-  "Persian",
-  "Peterbald",
-  "Pixie-bob",
-  "Raas",
-  "Ragamuffin",
-  "Ragdoll",
-  "Russian Blue",
-
-  "Sam Sawet",
-  "Savannah",
-  "Scottish Fold",
-  "Selkirk Rex",
-  "Serengeti",
-  "Serrade petit",
-  "Siamese",
-  "Siberian",
-  "Singapura",
-  "Snowshoe",
-  "Sokoke",
-  "Somali",
-  "Sphynx",
-  "Suphalak",
-  "Thai",
-  "Thai Lilac",
-  "Tonkinese",
-  "Toyger",
-  "Turkish Angora",
-  "Turkish Van",
-  "Ukrainian Levkoy",
-];
-console
-
-function petType() {
-  fetch(requestNinja, {
-    headers: {
-      "X-Api-Key": "cjMugAovo7SNn+DtczTAMg==P49uxlggz9Z3SFRx",
-    },
-    contentType: "application/json",
-  })
-    .then(function (response) {
-      console.log(response);
-      return response.json();
-    })
-    .then(function (data) {
-      console.log(data);
-    });
-}
-petType();
-
-
-
-
-function populateDogArray(){
-for (var i = 0; i < dogArray.length; i++) {
-  var option = document.createElement('option');
-  console.log(('option').value)
+// dog loop for the breed drop down
+for (let i = 0; i < dogArray.length; i++) {
+  var option = document.createElement("option");
+  option.textContent = dogArray[i];
+  dogArray[i] = dogArray[i].toLowerCase().split(" ").join("%20");
   option.value = dogArray[i];
-  option.text = dogArray[i];
-  breedDropdown.add(option);
-}}
-populateDogArray();
-
-function saveToLocalStorage() {
-
-  var selects = document.querySelectorAll('select[data-current-question]');
-  
-  
-  selects.forEach(select => {
-    const currentQuestion = select.getAttribute('data-current-question');
-    const selectedValue = select.value;
-    
-    
-    localStorage.setItem(currentQuestion, selectedValue);
-  });
+  dropdownAnswers2.append(option);
 }
-
-document.querySelector("form").addEventListener("submit", function (event) {
-  event.preventDefault();
-  saveToLocalStorage();
-});
-
-// var catFunction = function () {
-//   for (let i = 0; i < catArray.length; i++) {
-//     var option = document.createElement("option");
-//     option.textContent = catArray[i];
-//     catArray[i] = catArray[i].toLowerCase().split(" ").join("%20");
-//     option.value = catArray[i];
-//     console.log('option')
-//   }
-// };
-
-
-// // dog loop for the breed drop down
-// var dogFunction = function () {
-//   for (let i = 0; i < dogArray.length; i++) {
-//     var option = document.createElement("option");
-//     option.textContent = dogArray[i];
-//     dogArray[i] = dogArray[i].toLowerCase().split(" ").join("%20");
-//     option.value = dogArray[i];
-//   }
-// };
 // need to create multiple question objects (cat, dog or both questions)
 
+var currentQuestion = 0; // created a variable to keep a question count
+var answeredValue = 0;
+var questionPlaceEl = document.getElementById("questionPlaceholder"); //targeted the questionplaceholder by ID
+var selectedOption = document.getElementById("dropdownAnswers").value; //targeted the dropdown options by id and then the value in the drop down
+//created a object of objects for the the questions for both, dogs and cats
 
-
-
-
-
-
-
-// var bothQuestions = [
-//   {
-//     question: "1. Dog breeds",
-//     dropdownOptions: dogArray,
-//   },
-//   {
-//     question: "2. Cat breeds",
-//     dropdownOptions: catArray,
-//   },
-//   {
-//     question: "3 I’m interested in adopting a ____.",
-//     dropdownOptions: ["Dog", "Cat"],
-//   },
-//   {
-//     question: "4. How much free time do you have to devote to a pet? (The Playfulness of an animal typically demands more time for attention.)",
-//     dropdownOptions: [
-//       "30 minutes a day",
-//       "2 hours a day",
-//       "4 hours a day",
-//       "More than 4 hours a day",
-//     ],
-//   },
-//   {
-//     question: "5. How important is it that the pet is children-friendly?",
-//     dropdownOptions: ["1", "2", "3", "4", "5"],
-//   },
-//   {
-//     question: "6. What level of grooming is most comfortable for you?",
-//     dropdownOptions: ["1", "2", "3", "4", "5"],
-//   },
-//   {
-//     question: "7. What energy level is the best fit for you?(playfulness)",
-//     dropdownOptions: ["1", "2", "3", "4", "5"],
-//   },
-
-//   {
-//     question: "8. What level of trainability are you looking for?(Intelligence)",
-//     dropdownOptions: ["1", "2", "3", "4", "5"],
-//   },
+var bothQuestions = [
+  {
+    question: "1 I’m interested in adopting a ____.",
+    dropdownOptions: ["Dog", "Cat"],
+  },
+  {
+    question: "2. How much free time do you have to devote to a pet?",
+    dropdownOptions: [
+      "30 minutes a day",
+      "2 hours a day",
+      "4 hours a day",
+      "More than 4 hours a day",
+    ],
+  },
+  {
+    question: "3. How important is it that the pet is children-friendly?",
+    dropdownOptions: ["1", "2", "3", "4", "5"],
+  },
+  {
+    question: "4. What level of grooming is most comfortable for you?",
+    dropdownOptions: ["1", "2", "3", "4", "5"],
+  },
+  {
+    question: "5. What energy level is the best fit for you?",
+    dropdownOptions: ["1", "2", "3", "4", "5"],
+  },
+  {
+    question: "6. How much time can you devote to cleaning after your pet?",
+    dropdownOptions: ["30 minutes a day", "1 hour a day", "2 hours a day"],
+  },
   
-//   {
-//     question: "11. There are _____ as part of my HOA or lease.",
-//     dropdownOptions: ["Dog restrictions", "No dog restrictions"],
-//   },
+  {
+    question: "7. What level of trainability are you looking for?",
+    dropdownOptions: ["1", "2", "3", "4", "5"],
+  },
+  {
+    question: "8. My ideal dog is _____.",
+    dropdownOptions: [
+      "No age preference",
+      "A puppy",
+      "A young pet (1-6 years)",
+      "A senior pet (6+ years)",
+    ],
+  },
+  {
+    question: "9. There are _____ as part of my HOA or lease.",
+    dropdownOptions: ["Dog restrictions", "No dog restrictions"],
+  },
+ 
+  {
+    question: "10. What level of barking is acceptable to you?",
+    dropdownOptions: ["1", "2", "3", "4", "5"],
+  },
+  {
+    questions: "11. dog breeds",
+    dropdownOptions: dogArray,
+  },
+  {
+    question: "12. cat breeds",
+    dropdownOptions: catArray,
+  },
+]
 
-//   {
-//     question: "12. What level of barking is acceptable to you?",
-//     dropdownOptions: ["1", "2", "3", "4", "5"],
-//   },
-// ];
 
-// function appendQuestions() {
-//   console.log(currentQuestion);
-//   console.log(bothQuestions.length);
+//this function will append the question answers and add textcontent
+function appendQuestions() {
+  console.log(currentQuestion);
+  console.log(bothQuestions.length);
+  //create an if statement so that while the number of questions is less than the length of the both question object, code will run...
+  if (currentQuestion < bothQuestions.length) {
+    //need a variable to assign which question object, in the larger object will be saved as the current question
+    var currentQuestionObject = bothQuestions[currentQuestion];
+    //using get element by id targetting the question placeholder we will save that element to the question placeholder for use later
+    // the same is done for dropdown answers
+    var questionPlaceholder = document.getElementById("questionPlaceholder");
+    var dropdownAnswers = document.getElementById("dropdownAnswers");
+    //the question placeholder is a label element, we will add the question text by saving the text content as the question at the location
+    // saved by the currentquestionobject variable
+    questionPlaceholder.textContent = currentQuestionObject.question;
+    dropdownAnswers.innerHTML = "";
+    //the currentQuestionObject has (question and dropdown option key value pairs)
+    // targetting the currentquestionobject's dropdown options we will use the foreach array method to run the function with the parementrs of option and index
+    // which will be used later in this method/function
+    currentQuestionObject.dropdownOptions.forEach(function (option, index) {
+      // option represents the each element in the array, index
+      // the variable option element is using the create element method to create an option element (earlier we targetd the dropdownAnswers element so it knows where to go)
+      // the value attribute of the option element will be given a unique value 1 higher than the last
+      var optionElement = document.createElement("option");
+      // optionElement is now creating a new option element with the next index
+      optionElement.value = "option" + (index + 1);
+      //the text content is taken from the option variable we just created then based on the dropdownoptions array the options are appended for each position in the array
+      optionElement.textContent = option;
+      dropdownAnswers.appendChild(optionElement);
+    });
+    // the current question count is updated + 1 each time
+    currentQuestion++;
+    console.log(currentQuestion);
+    console.log("in both if statement")
+}}
 
-//   if (currentQuestion < bothQuestions.length) {
-//     var currentQuestionObject = bothQuestions[currentQuestion];
-
-//     var questionPlaceholder = document.getElementById("questionPlaceholder");
-//     var dropdownAnswers = document.getElementById("dropdownAnswers");
-//     console.log(dropdownAnswers.value );
-//     questionPlaceholder.textContent = currentQuestionObject.question;
-//     dropdownAnswers.innerHTML = "";
-
-//     currentQuestionObject.dropdownOptions.forEach(function (option, index) {
-//       var optionElement = document.createElement("option");
-
-//       optionElement.value = "option" + (index + 1);
-
-//       optionElement.textContent = option;
-//       // console.log(option);
-//       dropdownAnswers.appendChild(optionElement);
-//     });
-    
-//     // need to get local storage to save on submit and not replace the last key value pair.
-
-//     console.log(localStorage.setItem(document.querySelector('option').text , JSON.stringify(document.querySelector('option').text)));
-//     currentQuestion++;
-//     console.log(currentQuestion);
-//     console.log("in both if statement");
-    
-//   }
-// }
 
 // calling the function to get the question object into the form
 // appendQuestions();
