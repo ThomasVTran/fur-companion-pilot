@@ -1,11 +1,10 @@
 var APINinjas = 'cjMugAovo7SNn+DtczTAMg==P49uxlggz9Z3SFRx'
 var chosenPetType = 'cats'
-var petBreed = '5'
+var petBreed = 'abyssinian'
 var catCarouselImgs = document.querySelectorAll('.cat-image')
 var dogCarouselImgs = document.querySelectorAll('.dog-image')
 // var carouselItems = document.getElementById('carousel-items')
-var requestNinja = `https://api.api-ninjas.com/v1/${chosenPetType}?playfulness=${petBreed}`
-
+var requestNinja = `https://api.api-ninjas.com/v1/${chosenPetType}?name=${petBreed}`
 
 // random dog and cat image carousel
 var theCatAPIKey = 'live_zqFTSSujc6nQSLlan4OKwI0Jzmsczq7iedMNANsZMjYf6yKUT8ee0A13DyhrzRHv'
@@ -67,7 +66,7 @@ function petType() {
       console.log(data);
     });
 }
-petType();
+petType()
 
 var catArray = [
   "Abyssinian",
