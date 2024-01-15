@@ -668,9 +668,6 @@ function petType() {
 }
 petType();
 
-
-
-
 function populateDogArray(){
 for (var i = 0; i < dogArray.length; i++) {
   var option = document.createElement('option');
@@ -694,6 +691,32 @@ function saveToLocalStorage() {
     localStorage.setItem(currentQuestion, selectedValue);
   });
 }
+
+//add image links to results page for cat cards
+function addCatImage (){
+    var formData = new FormData();
+    for (let i = 0; i < catArray.length; i++) {
+        formData.append('image', $('#YOUR_IMAGE_FILE')[i].files[i]);
+        $.ajax({
+            method: 'POST',
+            url: 'https://api.api-ninjas.com/v1/imagetotext',
+            data: formData,
+            enctype: 'multipart/form-data',
+            processData: false,
+            contentType: false, 
+            success: function(result) {
+                console.log(result);
+                catArray.setItem("catImage", result);
+                catArray.getItem("catImage");
+            },
+            error: function ajaxError(jqXHR, textStatus, errorThrown) {
+                alert(jqXHR.responseText);
+            }
+        }); 
+    }
+}
+
+//add image links to results page for dog cards
 
 document.querySelector("form").addEventListener("submit", function (event) {
   event.preventDefault();
