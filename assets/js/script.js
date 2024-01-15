@@ -23,6 +23,8 @@ var savedTrainability = localStorage.getItem('trainability');
 var savedGrooming = localStorage.getItem('grooming');
 var savedSize = localStorage.getItem('size');
 
+// adding an event listener for change on each dropdown option element by using the variable that targets. 
+// there is a custom key for each
 catDogDropdown.addEventListener('change', function () {
   localStorage.setItem('species', catDogDropdown.value);
   });
@@ -49,7 +51,7 @@ sizeDropdown.addEventListener('change', function () {
 
 console.log(catDogDropdown);
 
-
+// 
 var imgArray = []
 
 fetch(`https://api.thecatapi.com/v1/images/search?limit=5&api_key=${theCatAPIKey}`)
@@ -811,7 +813,10 @@ petType();
 
 // combined cat array into dog array for the prototype alpha
 
-
+// the populate function is using a for loop to run over the dogArray (which now has the catArray in it for this version)
+// option variable is going to be a new option element, the option and value properties of the new option element are going to be the current dog 
+// breed from the dogArray. The option element is now added to the dropdown list with the id of breeddropdown
+// then we call the populate array function
 function populateArray(){
 for (var i = 0; i < dogArray.length; i++) {
   var option = document.createElement('option');
@@ -825,7 +830,9 @@ for (var i = 0; i < dogArray.length; i++) {
 populateArray();
 
 
-
+// on submit the form will prevent default and the locally stored value for the saved species will be checked in a conditional
+// if the user selected dog it will go to the dog results page, and vice versa for cat
+// if the user does not select dog or cat the page is reloaded
 document.querySelector("form").addEventListener("submit", function (event) {
   event.preventDefault();
 
@@ -834,40 +841,10 @@ document.querySelector("form").addEventListener("submit", function (event) {
   }else if (savedSpecies === 'Cat'){
     location.assign('resultsCat.html')
   } else {
-    window.alert('please select cat or dog')
+    location.reload();
   }
  
 });
 
 
-
-// document.addEventListener('click', function(){
-//   localStorage.setItem(currentQuestion, selectedValue)
-//   var choiceSpecies = JSON.parse(localStorage.getItem("species"));
-//   if(choiceSpecies === 'Dog'){
-//     populateDogArray()
-//   }else{
-//     populateCatArray()
-//   }
-// })
-
-// add image links to results page for cat cards
-// function addCatImage (){
-//   var formData = new FormData();
-//   for (let i = 0; i < )
-//   formData.append('image', $('#YOUR_IMAGE_FILE')[0].files[0]);
-//   $.ajax({
-//       method: 'POST',
-//       url: 'https://api.api-ninjas.com/v1/imagetotext',
-//       data: formData,
-//       enctype: 'multipart/form-data',
-//       processData: false,
-//       contentType: false,
-//       success: function(result) {
-//           console.log(result);
-//       },
-//       error: function ajaxError(jqXHR, textStatus, errorThrown) {
-//           alert(jqXHR.responseText);
-//       }
-//   });}
 
