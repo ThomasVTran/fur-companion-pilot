@@ -656,121 +656,121 @@ for (let i = 0; i < dogArray.length; i++) {
   option.value = dogArray[i];
   dropdownAnswers2.append(option);
 }
+// dog loop for the breed drop down
+var dogFunction = function () {
+  for (let i = 0; i < dogArray.length; i++) {
+    var option = document.createElement("option");
+    option.textContent = dogArray[i];
+    dogArray[i] = dogArray[i].toLowerCase().split(" ").join("%20");
+    option.value = dogArray[i];
+  }
+};
 // need to create multiple question objects (cat, dog or both questions)
 
-var currentQuestion = 0; // created a variable to keep a question count
-var answeredValue = 0;
-var questionPlaceEl = document.getElementById("questionPlaceholder"); //targeted the questionplaceholder by ID
-var selectedOption = document.getElementById("dropdownAnswers").value; //targeted the dropdown options by id and then the value in the drop down
-//created a object of objects for the the questions for both, dogs and cats
 
-var bothQuestions = [
-  {
-    question: "1 I’m interested in adopting a ____.",
-    dropdownOptions: ["Dog", "Cat"],
-  },
-  {
-    question: "2. How much free time do you have to devote to a pet?",
-    dropdownOptions: [
-      "30 minutes a day",
-      "2 hours a day",
-      "4 hours a day",
-      "More than 4 hours a day",
-    ],
-  },
-  {
-    question: "3. How important is it that the pet is children-friendly?",
-    dropdownOptions: ["1", "2", "3", "4", "5"],
-  },
-  {
-    question: "4. What level of grooming is most comfortable for you?",
-    dropdownOptions: ["1", "2", "3", "4", "5"],
-  },
-  {
-    question: "5. What energy level is the best fit for you?",
-    dropdownOptions: ["1", "2", "3", "4", "5"],
-  },
-  {
-    question: "6. How much time can you devote to cleaning after your pet?",
-    dropdownOptions: ["30 minutes a day", "1 hour a day", "2 hours a day"],
-  },
+
+
+
+
+
+
+// var bothQuestions = [
+//   {
+//     question: "1. Dog breeds",
+//     dropdownOptions: dogArray,
+//   },
+//   {
+//     question: "2. Cat breeds",
+//     dropdownOptions: catArray,
+//   },
+//   {
+//     question: "3 I’m interested in adopting a ____.",
+//     dropdownOptions: ["Dog", "Cat"],
+//   },
+//   {
+//     question: "4. How much free time do you have to devote to a pet? (The Playfulness of an animal typically demands more time for attention.)",
+//     dropdownOptions: [
+//       "30 minutes a day",
+//       "2 hours a day",
+//       "4 hours a day",
+//       "More than 4 hours a day",
+//     ],
+//   },
+//   {
+//     question: "5. How important is it that the pet is children-friendly?",
+//     dropdownOptions: ["1", "2", "3", "4", "5"],
+//   },
+//   {
+//     question: "6. What level of grooming is most comfortable for you?",
+//     dropdownOptions: ["1", "2", "3", "4", "5"],
+//   },
+//   {
+//     question: "7. What energy level is the best fit for you?(playfulness)",
+//     dropdownOptions: ["1", "2", "3", "4", "5"],
+//   },
+
+//   {
+//     question: "8. What level of trainability are you looking for?(Intelligence)",
+//     dropdownOptions: ["1", "2", "3", "4", "5"],
+//   },
   
-  {
-    question: "7. What level of trainability are you looking for?",
-    dropdownOptions: ["1", "2", "3", "4", "5"],
-  },
-  {
-    question: "8. My ideal dog is _____.",
-    dropdownOptions: [
-      "No age preference",
-      "A puppy",
-      "A young pet (1-6 years)",
-      "A senior pet (6+ years)",
-    ],
-  },
-  {
-    question: "9. There are _____ as part of my HOA or lease.",
-    dropdownOptions: ["Dog restrictions", "No dog restrictions"],
-  },
- 
-  {
-    question: "10. What level of barking is acceptable to you?",
-    dropdownOptions: ["1", "2", "3", "4", "5"],
-  },
-  {
-    questions: "11. dog breeds",
-    dropdownOptions: dogArray,
-  },
-  {
-    question: "12. cat breeds",
-    dropdownOptions: catArray,
-  },
-]
+//   {
+//     question: "11. There are _____ as part of my HOA or lease.",
+//     dropdownOptions: ["Dog restrictions", "No dog restrictions"],
+//   },
 
+//   {
+//     question: "12. What level of barking is acceptable to you?",
+//     dropdownOptions: ["1", "2", "3", "4", "5"],
+//   },
+// ];
 
-//this function will append the question answers and add textcontent
-function appendQuestions() {
-  console.log(currentQuestion);
-  console.log(bothQuestions.length);
-  //create an if statement so that while the number of questions is less than the length of the both question object, code will run...
-  if (currentQuestion < bothQuestions.length) {
-    //need a variable to assign which question object, in the larger object will be saved as the current question
-    var currentQuestionObject = bothQuestions[currentQuestion];
-    //using get element by id targetting the question placeholder we will save that element to the question placeholder for use later
-    // the same is done for dropdown answers
-    var questionPlaceholder = document.getElementById("questionPlaceholder");
-    var dropdownAnswers = document.getElementById("dropdownAnswers");
-    //the question placeholder is a label element, we will add the question text by saving the text content as the question at the location
-    // saved by the currentquestionobject variable
-    questionPlaceholder.textContent = currentQuestionObject.question;
-    dropdownAnswers.innerHTML = "";
-    //the currentQuestionObject has (question and dropdown option key value pairs)
-    // targetting the currentquestionobject's dropdown options we will use the foreach array method to run the function with the parementrs of option and index
-    // which will be used later in this method/function
-    currentQuestionObject.dropdownOptions.forEach(function (option, index) {
-      // option represents the each element in the array, index
-      // the variable option element is using the create element method to create an option element (earlier we targetd the dropdownAnswers element so it knows where to go)
-      // the value attribute of the option element will be given a unique value 1 higher than the last
-      var optionElement = document.createElement("option");
-      // optionElement is now creating a new option element with the next index
-      optionElement.value = "option" + (index + 1);
-      //the text content is taken from the option variable we just created then based on the dropdownoptions array the options are appended for each position in the array
-      optionElement.textContent = option;
-      dropdownAnswers.appendChild(optionElement);
-    });
-    // the current question count is updated + 1 each time
-    currentQuestion++;
-    console.log(currentQuestion);
-    console.log("in both if statement")
-}}
+// function appendQuestions() {
+//   console.log(currentQuestion);
+//   console.log(bothQuestions.length);
 
+//   if (currentQuestion < bothQuestions.length) {
+//     var currentQuestionObject = bothQuestions[currentQuestion];
+
+//     var questionPlaceholder = document.getElementById("questionPlaceholder");
+//     var dropdownAnswers = document.getElementById("dropdownAnswers");
+//     console.log(dropdownAnswers.value );
+//     questionPlaceholder.textContent = currentQuestionObject.question;
+//     dropdownAnswers.innerHTML = "";
+
+//     currentQuestionObject.dropdownOptions.forEach(function (option, index) {
+//       var optionElement = document.createElement("option");
+
+//       optionElement.value = "option" + (index + 1);
+
+//       optionElement.textContent = option;
+//       // console.log(option);
+//       dropdownAnswers.appendChild(optionElement);
+//     });
+    
+//     // need to get local storage to save on submit and not replace the last key value pair.
+
+//     console.log(localStorage.setItem(document.querySelector('option').text , JSON.stringify(document.querySelector('option').text)));
+//     currentQuestion++;
+//     console.log(currentQuestion);
+//     console.log("in both if statement");
+    
+//   }
+// }
 
 // calling the function to get the question object into the form
-// appendQuestions();
+appendQuestions();
 
 //now we are calling attention to the form element, adding an event listener for that submit button and then running a function to re run the
 // append questions function each time submit is clicked, adding 1 to the question value each time and cycling the questions
-
+document.querySelector("form").addEventListener("submit", function (event) {
+  event.preventDefault();
+  appendQuestions();
+  console.log(selectedOption)
+  console.log(bothQuestions[currentQuestion].dropdownOptions.value)
+  console.log(event.target.selectedOption)
+ localStorage.setItem("UserInput", JSON.stringify(bothQuestions[currentQuestion].dropdownOptions.value));
+});
 
 // function askDogQuestions() {
 //   currentQuestion = 0;
