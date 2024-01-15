@@ -4,6 +4,8 @@ var petBreed = '5'
 var carouselImgs = document.querySelectorAll('.animal-image')
 var carouselItems = document.getElementById('carousel-items')
 var requestNinja = `https://api.api-ninjas.com/v1/${chosenPetType}?playfulness=${petBreed}`
+
+
 var theCatAPIKey = 'live_zqFTSSujc6nQSLlan4OKwI0Jzmsczq7iedMNANsZMjYf6yKUT8ee0A13DyhrzRHv'
 var theDogAPIKey = 'live_T2AySINQ9j3gOKvi0bkfD47zo8VSZAyo8bkluvwT1hCxQZig4DiIC951YSat8qEm'
 var catDogDropdown = document.getElementById('catDogDropdown');
@@ -764,7 +766,6 @@ var dogArray = [
   "Ragamuffin",
   "Ragdoll",
   "Russian Blue",
-
   "Sam Sawet",
   "Savannah",
   "Scottish Fold",
@@ -808,10 +809,10 @@ function petType() {
 }
 petType();
 
+// combined cat array into dog array for the prototype alpha
 
 
-
-function populateDogArray(){
+function populateArray(){
 for (var i = 0; i < dogArray.length; i++) {
   var option = document.createElement('option');
   console.log(('option').value)
@@ -820,17 +821,8 @@ for (var i = 0; i < dogArray.length; i++) {
   document.getElementById('breedDropdown').add(option);
 }}
 
-function populateCatArray(){
-  for (var i = 0; i < catArray.length; i++) {
-    var option = document.createElement('option');
-    console.log(('option').value)
-    option.value = catArray[i];
-    option.text = catArray[i];
-    document.getElementById('breedDropdown').add(option);
-  }}
 
-
-populateDogArray();
+populateArray();
 
 
 
@@ -849,17 +841,33 @@ document.querySelector("form").addEventListener("submit", function (event) {
 
 
 
-document.addEventListener('click', function(){
-  localStorage.setItem(currentQuestion, selectedValue)
-  var choiceSpecies = JSON.parse(localStorage.getItem("species"));
-  if(choiceSpecies === 'Dog'){
-    populateDogArray()
-  }else{
-    populateCatArray()
-  }
-})
-// if(choiceSpecies === 'Dog'){
-//   populateDogArray();
-// }else{
-//   populateCatArray();
-// }
+// document.addEventListener('click', function(){
+//   localStorage.setItem(currentQuestion, selectedValue)
+//   var choiceSpecies = JSON.parse(localStorage.getItem("species"));
+//   if(choiceSpecies === 'Dog'){
+//     populateDogArray()
+//   }else{
+//     populateCatArray()
+//   }
+// })
+
+// add image links to results page for cat cards
+// function addCatImage (){
+//   var formData = new FormData();
+//   for (let i = 0; i < )
+//   formData.append('image', $('#YOUR_IMAGE_FILE')[0].files[0]);
+//   $.ajax({
+//       method: 'POST',
+//       url: 'https://api.api-ninjas.com/v1/imagetotext',
+//       data: formData,
+//       enctype: 'multipart/form-data',
+//       processData: false,
+//       contentType: false,
+//       success: function(result) {
+//           console.log(result);
+//       },
+//       error: function ajaxError(jqXHR, textStatus, errorThrown) {
+//           alert(jqXHR.responseText);
+//       }
+//   });}
+
