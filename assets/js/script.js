@@ -6,6 +6,47 @@ var carouselItems = document.getElementById('carousel-items')
 var requestNinja = `https://api.api-ninjas.com/v1/${chosenPetType}?playfulness=${petBreed}`
 var theCatAPIKey = 'live_zqFTSSujc6nQSLlan4OKwI0Jzmsczq7iedMNANsZMjYf6yKUT8ee0A13DyhrzRHv'
 var theDogAPIKey = 'live_T2AySINQ9j3gOKvi0bkfD47zo8VSZAyo8bkluvwT1hCxQZig4DiIC951YSat8qEm'
+var catDogDropdown = document.getElementById('catDogDropdown');
+var breedDropdown = document.getElementById('breedDropdown');
+var timeCommitmentDropdown = document.getElementById('timeCommitmentDropdown');
+var childFriendlyDropdown = document.getElementById('childFriendlyDropdown');
+var trainabilityDropdown = document.getElementById('trainabilityDropdown');
+var groomingDropdown = document.getElementById('groomingDropdown');
+var sizeDropdown = document.getElementById('sizeDropdown');
+var savedSpecies = localStorage.getItem('species');
+var savedBreed = localStorage.getItem('breed');
+var savedTimeCommitment = localStorage.getItem('timeCommitment');
+var savedChildFriendly = localStorage.getItem('childFriendly');
+var savedTrainability = localStorage.getItem('trainability');
+var savedGrooming = localStorage.getItem('grooming');
+var savedSize = localStorage.getItem('size');
+
+catDogDropdown.addEventListener('change', function () {
+  localStorage.setItem('species', catDogDropdown.value);
+  });
+
+breedDropdown.addEventListener('change', function () {
+  localStorage.setItem('breed', breedDropdown.value);
+});
+timeCommitmentDropdown.addEventListener('change', function () {
+  localStorage.setItem('timeCommitment', timeCommitmentDropdown.value);
+});
+childFriendlyDropdown.addEventListener('change', function () {
+  localStorage.setItem('childFriendly', childFriendlyDropdown.value);
+});
+trainabilityDropdown.addEventListener('change', function () {
+  localStorage.setItem('trainability', trainabilityDropdown.value);
+});
+groomingDropdown.addEventListener('change', function () {
+  localStorage.setItem('grooming', groomingDropdown.value);
+});
+sizeDropdown.addEventListener('change', function () {
+  localStorage.setItem('size', sizeDropdown.value);
+});
+
+
+console.log(catDogDropdown);
+
 
 var imgArray = []
 
@@ -85,104 +126,104 @@ function petType() {
 }
 petType();
 
-var catArray = [
-  "Abyssinian",
-  "Aegean",
-  "American Curl",
-  "American Bobtail",
-  "American Shorthair",
-  "American Wirehair",
-  "Arabian Mau",
-  "Australian Mist",
-  "Asian",
-  "Asian Semi-longhair",
-  "Balinese",
-  "Bambino",
-  "Bengal",
-  "Birman",
-  "Bombay",
-  "Brazilian Shorthair",
-  "British Semi-longhair",
-  "British Shorthair",
-  "British Longhair",
-  "Burmese",
-  "Burmilla",
-  "California Spangled",
-  "Chantilly-Tiffany",
-  "Chartreux",
-  "Chausie",
-  "Cheetoh",
-  "Colorpoint Shorthair",
-  "Cornish Rex",
-  "Cymric",
-  "Cyprus",
-  "Devon Rex",
-  "Donskoy",
-  "Dragon Li",
-  "Dwarf cat",
-  "Egyptian Mau",
-  "European Shorthair",
-  "Exotic Shorthair",
-  "Foldex",
-  "German Rex",
-  "Havana Brown",
-  "Highlander",
-  "Himalayan",
-  "Japanese Bobtail",
-  "Javanese",
-  "Karelian Bobtail",
-  "Khao Manee",
-  "Korat",
-  "Korean Bobtail",
-  "Korn Ja",
-  "Kurilian Bobtail",
-  "LaPerm",
-  "Lykoi",
-  "Maine Coon",
-  "Manx",
-  "Mekong Bobtail",
-  "Minskin",
-  "Munchkin",
-  "Nebelung",
-  "Napoleon",
-  "Norwegian Forest",
-  "Ocicat",
-  "Ojos Azules",
-  "Oregon Rex",
-  "Oriental Bicolor",
-  "Oriental Shorthair",
-  "Oriental Longhair",
-  "PerFold",
-  "Persian",
-  "Peterbald",
-  "Pixie-bob",
-  "Raas",
-  "Ragamuffin",
-  "Ragdoll",
-  "Russian Blue",
+// var catArray = [
+//   "Abyssinian",
+//   "Aegean",
+//   "American Curl",
+//   "American Bobtail",
+//   "American Shorthair",
+//   "American Wirehair",
+//   "Arabian Mau",
+//   "Australian Mist",
+//   "Asian",
+//   "Asian Semi-longhair",
+//   "Balinese",
+//   "Bambino",
+//   "Bengal",
+//   "Birman",
+//   "Bombay",
+//   "Brazilian Shorthair",
+//   "British Semi-longhair",
+//   "British Shorthair",
+//   "British Longhair",
+//   "Burmese",
+//   "Burmilla",
+//   "California Spangled",
+//   "Chantilly-Tiffany",
+//   "Chartreux",
+//   "Chausie",
+//   "Cheetoh",
+//   "Colorpoint Shorthair",
+//   "Cornish Rex",
+//   "Cymric",
+//   "Cyprus",
+//   "Devon Rex",
+//   "Donskoy",
+//   "Dragon Li",
+//   "Dwarf cat",
+//   "Egyptian Mau",
+//   "European Shorthair",
+//   "Exotic Shorthair",
+//   "Foldex",
+//   "German Rex",
+//   "Havana Brown",
+//   "Highlander",
+//   "Himalayan",
+//   "Japanese Bobtail",
+//   "Javanese",
+//   "Karelian Bobtail",
+//   "Khao Manee",
+//   "Korat",
+//   "Korean Bobtail",
+//   "Korn Ja",
+//   "Kurilian Bobtail",
+//   "LaPerm",
+//   "Lykoi",
+//   "Maine Coon",
+//   "Manx",
+//   "Mekong Bobtail",
+//   "Minskin",
+//   "Munchkin",
+//   "Nebelung",
+//   "Napoleon",
+//   "Norwegian Forest",
+//   "Ocicat",
+//   "Ojos Azules",
+//   "Oregon Rex",
+//   "Oriental Bicolor",
+//   "Oriental Shorthair",
+//   "Oriental Longhair",
+//   "PerFold",
+//   "Persian",
+//   "Peterbald",
+//   "Pixie-bob",
+//   "Raas",
+//   "Ragamuffin",
+//   "Ragdoll",
+//   "Russian Blue",
 
-  "Sam Sawet",
-  "Savannah",
-  "Scottish Fold",
-  "Selkirk Rex",
-  "Serengeti",
-  "Serrade petit",
-  "Siamese",
-  "Siberian",
-  "Singapura",
-  "Snowshoe",
-  "Sokoke",
-  "Somali",
-  "Sphynx",
-  "Suphalak",
-  "Thai",
-  "Thai Lilac",
-  "Tonkinese",
-  "Toyger",
-  "Turkish Angora",
-  "Turkish Van",
-  "Ukrainian Levkoy",
-];
+//   "Sam Sawet",
+//   "Savannah",
+//   "Scottish Fold",
+//   "Selkirk Rex",
+//   "Serengeti",
+//   "Serrade petit",
+//   "Siamese",
+//   "Siberian",
+//   "Singapura",
+//   "Snowshoe",
+//   "Sokoke",
+//   "Somali",
+//   "Sphynx",
+//   "Suphalak",
+//   "Thai",
+//   "Thai Lilac",
+//   "Tonkinese",
+//   "Toyger",
+//   "Turkish Angora",
+//   "Turkish Van",
+//   "Ukrainian Levkoy",
+// ];
 // cat loop for breed drop down
 // for (let i = 0; i < catArray.length; i++) {
 //   var option = document.createElement("option");
@@ -191,6 +232,8 @@ var catArray = [
 //   option.value = catArray[i];
 //   dropdownAnswers.append(option);
 // }
+
+
 
 var dogArray = [
   "Affenpinscher",
@@ -646,6 +689,103 @@ var dogArray = [
   "Wirehaired Vizsla",
   "Yorkshire Terrier",
   "Šarplaninac",
+  "CAT OPTIONS",
+  "Abyssinian",
+  "Aegean",
+  "American Curl",
+  "American Bobtail",
+  "American Shorthair",
+  "American Wirehair",
+  "Arabian Mau",
+  "Australian Mist",
+  "Asian",
+  "Asian Semi-longhair",
+  "Balinese",
+  "Bambino",
+  "Bengal",
+  "Birman",
+  "Bombay",
+  "Brazilian Shorthair",
+  "British Semi-longhair",
+  "British Shorthair",
+  "British Longhair",
+  "Burmese",
+  "Burmilla",
+  "California Spangled",
+  "Chantilly-Tiffany",
+  "Chartreux",
+  "Chausie",
+  "Cheetoh",
+  "Colorpoint Shorthair",
+  "Cornish Rex",
+  "Cymric",
+  "Cyprus",
+  "Devon Rex",
+  "Donskoy",
+  "Dragon Li",
+  "Dwarf cat",
+  "Egyptian Mau",
+  "European Shorthair",
+  "Exotic Shorthair",
+  "Foldex",
+  "German Rex",
+  "Havana Brown",
+  "Highlander",
+  "Himalayan",
+  "Japanese Bobtail",
+  "Javanese",
+  "Karelian Bobtail",
+  "Khao Manee",
+  "Korat",
+  "Korean Bobtail",
+  "Korn Ja",
+  "Kurilian Bobtail",
+  "LaPerm",
+  "Lykoi",
+  "Maine Coon",
+  "Manx",
+  "Mekong Bobtail",
+  "Minskin",
+  "Munchkin",
+  "Nebelung",
+  "Napoleon",
+  "Norwegian Forest",
+  "Ocicat",
+  "Ojos Azules",
+  "Oregon Rex",
+  "Oriental Bicolor",
+  "Oriental Shorthair",
+  "Oriental Longhair",
+  "PerFold",
+  "Persian",
+  "Peterbald",
+  "Pixie-bob",
+  "Raas",
+  "Ragamuffin",
+  "Ragdoll",
+  "Russian Blue",
+
+  "Sam Sawet",
+  "Savannah",
+  "Scottish Fold",
+  "Selkirk Rex",
+  "Serengeti",
+  "Serrade petit",
+  "Siamese",
+  "Siberian",
+  "Singapura",
+  "Snowshoe",
+  "Sokoke",
+  "Somali",
+  "Sphynx",
+  "Suphalak",
+  "Thai",
+  "Thai Lilac",
+  "Tonkinese",
+  "Toyger",
+  "Turkish Angora",
+  "Turkish Van",
+  "Ukrainian Levkoy",
 ];
 console.log(dogArray)
 
@@ -679,24 +819,47 @@ for (var i = 0; i < dogArray.length; i++) {
   option.text = dogArray[i];
   document.getElementById('breedDropdown').add(option);
 }}
+
+function populateCatArray(){
+  for (var i = 0; i < catArray.length; i++) {
+    var option = document.createElement('option');
+    console.log(('option').value)
+    option.value = catArray[i];
+    option.text = catArray[i];
+    document.getElementById('breedDropdown').add(option);
+  }}
+
+
 populateDogArray();
 
-function saveToLocalStorage() {
 
-  var selects = document.querySelectorAll('select[data-current-question]');
-  
-  
-  selects.forEach(select => {
-    const currentQuestion = select.getAttribute('data-current-question');
-    const selectedValue = select.value;
-    
-    
-    localStorage.setItem(currentQuestion, selectedValue);
-  });
-}
 
 document.querySelector("form").addEventListener("submit", function (event) {
   event.preventDefault();
-  saveToLocalStorage();
+
+  if (savedSpecies === 'Dog'){
+    location.assign('resultsDog.html')
+  }else if (savedSpecies === 'Cat'){
+    location.assign('resultsCat.html')
+  } else {
+    window.alert('please select cat or dog')
+  }
+ 
 });
 
+
+
+document.addEventListener('click', function(){
+  localStorage.setItem(currentQuestion, selectedValue)
+  var choiceSpecies = JSON.parse(localStorage.getItem("species"));
+  if(choiceSpecies === 'Dog'){
+    populateDogArray()
+  }else{
+    populateCatArray()
+  }
+})
+// if(choiceSpecies === 'Dog'){
+//   populateDogArray();
+// }else{
+//   populateCatArray();
+// }
