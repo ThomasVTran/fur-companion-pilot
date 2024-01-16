@@ -72,5 +72,8 @@ There are no contributions at this time.
 
 ## Tests
 
-Go the extra mile and write tests for your application. Then provide examples on how to run them here.
+Here are some test cases below:
+- If user maxes out local storage, it should let the user know.
+- If the user breaks out the dropdown selection for any reason, an error will display.
+- The site is also responsive to most platforms.
 
