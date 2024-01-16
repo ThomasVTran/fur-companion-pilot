@@ -24,259 +24,200 @@
       Fur Companion Pilot
     </header>
 
-    <div
-      id="animation-carousel"
-      class="relative w-full interval:5000"
-      data-carousel="static"
-    >
-      <!-- Carousel wrapper -->
-      <div
-        id="carousel-items"
-        class="relative h-56 overflow-hidden rounded-lg md:h-96"
-      >
-        <!-- Item 1 -->
-        <div class="hidden duration-200 ease-linear" data-carousel-item>
-          <img
-            class="animal-image absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-            alt="animal img"
-          />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fur Companion Pilot</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+</head>
+
+
+  <div id="animation-carousel" class="relative w-full" data-carousel="slide">
+          <!-- Carousel wrapper -->
+          <div id="carousel-items" class="relative h-56 overflow-hidden rounded-lg md:h-96">
+            <!-- Item 1 -->
+            <div class="hidden duration-200 ease-linear" data-carousel-item>
+              <img class="dog-image absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                alt="animal img" />
+            </div>
+            <!-- Item 2 -->
+            <div class="hidden duration-200 ease-linear" data-carousel-item>
+              <img class="cat-image absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                alt="animal img" />
+            </div>
+            <!-- Item 3 -->
+            <div class="hidden duration-200 ease-linear" data-carousel-item="active">
+              <img class="dog-image absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                alt="animal img" />
+            </div>
+            <!-- Item 4 -->
+            <div class="hidden duration-200 ease-linear" data-carousel-item>
+              <img class="cat-image absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                alt="animal img" />
+            </div>
+            <!-- Item 5 -->
+            <div class="hidden duration-200 ease-linear" data-carousel-item="active">
+              <img srcset class="dog-image absolute block max-w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                alt="animal img">
+            </div>
+            <!-- Item 6 -->
+            <div class="hidden duration-200 ease-linear" data-carousel-item>
+              <img srcset class="cat-image absolute block max-w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                alt="animal img">
+            </div>
+            <!-- Item 7 -->
+            <div class="hidden duration-200 ease-linear" data-carousel-item>
+              <img srcset class="dog-image absolute block max-w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                alt="animal img">
+            </div>
+            <!-- Item 8 -->
+            <div class="hidden duration-200 ease-linear" data-carousel-item>
+              <img srcset class="cat-image absolute block max-w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                alt="animal img">
+            </div>
+            <!-- Item 9 -->
+            <div class="hidden duration-200 ease-linear" data-carousel-item>
+              <img srcset class="dog-image absolute block max-w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                alt="animal img">
+            </div>
+            <!-- Item 10 -->
+            <div class="hidden duration-200 ease-linear" data-carousel-item>
+              <img srcset class="cat-image absolute block max-w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                alt="animal img">
+            </div>
+          </div>
+
+          <!-- Slider controls -->
+          <button type="button"
+            class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+            data-carousel-prev>
+            <span
+              class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+              <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M5 1 1 5l4 4" />
+              </svg>
+              <span class="sr-only">Previous</span>
+            </span>
+          </button>
+          <button type="button"
+            class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+            data-carousel-next>
+            <span
+              class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+              <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="m1 9 4-4-4-4" />
+              </svg>
+              <span class="sr-only">Next</span>
+            </span>
+          </button>
         </div>
-        <!-- Item 2 -->
-        <div class="hidden duration-200 ease-linear" data-carousel-item>
-          <img
-            class="animal-image absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-            alt="animal img"
-          />
+
+        <div class="flex justify-center items-center h-screen">
+          <form action="/index.html" method="get">
+            <div class="mb-4">
+              <label for="question" class="block text-lg font-medium text-gray-600">
+                Do you want a cat or Dog?</label>
+
+              <select name="question" id="catDogDropdown" data-current-question="species"
+                class="mt-1 p-2 border rounded-md w-full">
+                <option value="" disabled selected>Select option</option>
+                <option value="Dog">Dog</option>
+                <option value="Cat">Cat</option>
+              </select>
+
+              <label for="question" class="block text-lg font-medium text-gray-600">
+                Breed?</label>
+
+
+              <select name="question" id="breedDropdown" data-current-question="breed%Type"
+                class="mt-1 p-2 border rounded-md w-full">
+                <option value="" disabled selected>Select option</option>
+                <option value="breedType" id="breedDropdown"></option>
+              </select>
+
+              <label for="question" id="questionPlaceholder" class="block text-lg font-medium text-gray-600">
+                How much time can you commit to your pet per week?</label>
+
+              <select name="question" id="timeCommitmentDropdown" data-current-question="timeCommitment"
+                class="mt-1 p-2 border rounded-md w-full">
+                <option value="" disabled selected>Select option</option>
+                <option value="1">Minimal time commitment (1-5 hours)</option>
+                <option value="2">Moderate time commitment (5-10 hours)</option>
+                <option value="3">Significant time commitment (10-15 hours)</option>
+                <option value="4">Substantial time commitment (15-20 hours)</option>
+                <option value="5">Extensive time commitment (20+ hours)</option>
+              </select>
+
+              <label for="question" id="questionPlaceholder" class="block text-lg font-medium text-gray-600">
+                How important is it that your pet is friendly?</label>
+
+              <select name="question" id="childFriendlyDropdown" data-current-question="childFriendly"
+                class="mt-1 p-2 border rounded-md w-full">
+                <option value="" disabled selected>Select option</option>
+                <option value="1">Not important at all</option>
+                <option value="2">Slightly important</option>
+                <option value="3">Moderately important</option>
+                <option value="4">Very important</option>
+                <option value="5">Extremely important</option>
+              </select>
+
+              <label for="question" id="questionPlaceholder" class="block text-lg font-medium text-gray-600">
+                What level of trainability are you looking for?</label>
+
+              <select name="question" id="trainabilityDropdown" data-current-question="trainability"
+                class="mt-1 p-2 border rounded-md w-full">
+                <option value="" disabled selected>Select option</option>
+                <option value="1">Low trainability</option>
+                <option value="2">Moderate trainability</option>
+                <option value="3">Average trainability</option>
+                <option value="4">High trainability</option>
+                <option value="5">Very high trainability</option>
+              </select>
+
+              <label for="question" id="questionPlaceholder" class="block text-lg font-medium text-gray-600">What level
+                of grooming is most comfortable for you?</label>
+
+              <select name="question" id="groomingDropdown" data-current-question="grooming"
+                class="mt-1 p-2 border rounded-md w-full">
+                <option value="" disabled selected>Select option</option>
+                <option value="1">Low grooming needs</option>
+                <option value="2">Minimal grooming required</option>
+                <option value="3">Moderate grooming needed</option>
+                <option value="4">Regular grooming required</option>
+                <option value="5">High grooming needs</option>
+              </select>
+
+              <label for="question" id="questionPlaceholder" class="block text-lg font-medium text-gray-600">
+                What size pet is most comfortable for you?</label>
+
+              <select name="question" id="sizeDropdown" data-current-question="size"
+                class="mt-1 p-2 border rounded-md w-full">
+                <option value="" disabled selected>Select option</option>
+                <option value="1">Small (e.g., toy breeds)</option>
+                <option value="2">Medium (e.g., spaniels, beagles)</option>
+                <option value="3">Large (e.g., retrievers, collies)</option>
+                <option value="4">Extra-large (e.g., giant breeds)</option>
+                <option value="5">No preference / Open to any size</option>
+              </select>
+              <br />
+
+              <input id="submitButtonStyle" type="submit" value="Submit" />
+            </div>
+          </form>
         </div>
-        <!-- Item 3 -->
-        <div
-          class="hidden duration-200 ease-linear"
-          data-carousel-item="active"
-        >
-          <img
-            class="animal-image absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-            alt="animal img"
-          />
-        </div>
-        <!-- Item 4 -->
-        <div class="hidden duration-200 ease-linear" data-carousel-item>
-          <img
-            class="animal-image absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-            alt="animal img"
-          />
-        </div>
-        <!-- Item 5 -->
-        <div class="hidden duration-200 ease-linear" data-carousel-item>
-          <img
-            class="animal-image absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-            alt="animal img"
-          />
-        </div>
-      </div>
-
-      <!-- Slider controls -->
-      <button
-        type="button"
-        class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-        data-carousel-prev
-      >
-        <span
-          class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
-        >
-          <svg
-            class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 6 10"
-          >
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M5 1 1 5l4 4"
-            />
-          </svg>
-          <span class="sr-only">Previous</span>
-        </span>
-      </button>
-      <button
-        type="button"
-        class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-        data-carousel-next
-      >
-        <span
-          class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none"
-        >
-          <svg
-            class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 6 10"
-          >
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="m1 9 4-4-4-4"
-            />
-          </svg>
-          <span class="sr-only">Next</span>
-        </span>
-      </button>
-    </div>
-    
-    <div class="flex justify-center items-center h-screen">
-      <form action="/index.html" method="get" id = "petForm">
-        <div class="mb-4">
-          <label for="question" class="block text-lg font-medium text-gray-600">
-            Do you want a cat or Dog?</label
-          >
-
-          <select
-            name="question"
-            id="catDogDropdown"
-            data-current-question="species"
-            class="mt-1 p-2 border rounded-md w-full"
-          >
-          <option value="" disabled selected>Select option</option>
-            <option value="Dog">Dog</option>
-            <option value="Cat">Cat</option>
-          </select>
-
-          <label for="question" class="block text-lg font-medium text-gray-600">
-            Breed?</label>
-          
-
-          <select
-            name="question"
-            id="breedDropdown"
-            data-current-question="breed%Type"
-            class="mt-1 p-2 border rounded-md w-full"
-          >
-          <option value="" disabled selected>Select option</option>
-            <option value="breedType" id="breedDropdown"></option>
-          </select>
-
-          <label
-            for="question"
-            id="questionPlaceholder"
-            class="block text-lg font-medium text-gray-600"
-          >
-            How much time can you commit to your pet per week?</label
-          >
-
-          <select
-            name="question"
-            id="timeCommitmentDropdown"
-            data-current-question="timeCommitment"
-            class="mt-1 p-2 border rounded-md w-full"
-          >
-          <option value="" disabled selected>Select option</option>
-            <option value="1">Minimal time commitment (1-5 hours)</option>
-            <option value="2">Moderate time commitment (5-10 hours)</option>
-            <option value="3">Significant time commitment (10-15 hours)</option>
-            <option value="4">Substantial time commitment (15-20 hours)</option>
-            <option value="5">Extensive time commitment (20+ hours)</option>
-          </select>
-
-          <label
-            for="question"
-            id="questionPlaceholder"
-            class="block text-lg font-medium text-gray-600"
-          >
-            How important is it that your pet is friendly?</label
-          >
-
-          <select
-            name="question"
-            id="childFriendlyDropdown"
-            data-current-question="childFriendly"
-            class="mt-1 p-2 border rounded-md w-full"
-          >
-          <option value="" disabled selected>Select option</option>
-            <option value="1">Not important at all</option>
-            <option value="2">Slightly important</option>
-            <option value="3">Moderately important</option>
-            <option value="4">Very important</option>
-            <option value="5">Extremely important</option>
-          </select>
-
-          <label
-            for="question"
-            id="questionPlaceholder"
-            class="block text-lg font-medium text-gray-600"
-          >
-            What level of trainability are you looking for?</label
-          >
-
-          <select
-            name="question"
-            id="trainabilityDropdown"
-            data-current-question="trainability"
-            class="mt-1 p-2 border rounded-md w-full"
-          >
-          <option value="" disabled selected>Select option</option>
-            <option value="1">Low trainability</option>
-            <option value="2">Moderate trainability</option>
-            <option value="3">Average trainability</option>
-            <option value="4">High trainability</option>
-            <option value="5">Very high trainability</option>
-          </select>
-
-          <label
-            for="question"
-            id="questionPlaceholder"
-            class="block text-lg font-medium text-gray-600"
-            >What level of grooming is most comfortable for you?</label
-          >
-
-          <select
-            name="question"
-            id="groomingDropdown"
-            data-current-question="grooming"
-            class="mt-1 p-2 border rounded-md w-full"
-          >
-          <option value="" disabled selected>Select option</option>
-            <option value="1">Low grooming needs</option>
-            <option value="2">Minimal grooming required</option>
-            <option value="3">Moderate grooming needed</option>
-            <option value="4">Regular grooming required</option>
-            <option value="5">High grooming needs</option>
-          </select>
-
-          <label
-            for="question"
-            id="questionPlaceholder"
-            class="block text-lg font-medium text-gray-600"
-          >
-            What size pet is most comfortable for you?</label
-          >
-
-          <select
-            name="question"
-            id="sizeDropdown"
-            data-current-question="size"
-            class="mt-1 p-2 border rounded-md w-full"
-          >
-          <option value="" disabled selected>Select option</option>
-            <option value="1">Small (e.g., toy breeds)</option>
-            <option value="2">Medium (e.g., spaniels, beagles)</option>
-            <option value="3">Large (e.g., retrievers, collies)</option>
-            <option value="4">Extra-large (e.g., giant breeds)</option>
-            <option value="5">No preference / Open to any size</option>
-          </select>
-          <br />
-
-          <input id="submitButtonStyle" type="submit" value="Submit" />
-        </div>
-      </form>
-    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+<script src="./assets/js/script.js"></script>
   </body>
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
-  <script src="./assets/js/script.js"></script>
 </html>
