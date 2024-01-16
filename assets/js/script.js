@@ -24,6 +24,8 @@ var savedGrooming = localStorage.getItem('grooming');
 var savedSize = localStorage.getItem('size');
 var petFormHTML = document.querySelector('#petForm');
 
+// adding an event listener for change on each dropdown option element by using the variable that targets. 
+// there is a custom key for each
 catDogDropdown.addEventListener('change', function () {
   localStorage.setItem('species', catDogDropdown.value);
   });
@@ -48,6 +50,7 @@ sizeDropdown.addEventListener('change', function () {
 });
 
 console.log(catDogDropdown);
+
 
 var imgArray = []
 
@@ -809,9 +812,11 @@ function petType() {
 petType();
 
 
-
-
-function populateDogArray(){
+// the populate function is using a for loop to run over the dogArray (which now has the catArray in it for this version)
+// option variable is going to be a new option element, the option and value properties of the new option element are going to be the current dog 
+// breed from the dogArray. The option element is now added to the dropdown list with the id of breeddropdown
+// then we call the populate array function
+function populateArray(){
 for (var i = 0; i < dogArray.length; i++) {
   var option = document.createElement('option');
   //console.log(('option').value);
@@ -820,20 +825,13 @@ for (var i = 0; i < dogArray.length; i++) {
   document.getElementById('breedDropdown').add(option);
 }}
 
-function populateCatArray(){
-  for (var i = 0; i < catArray.length; i++) {
-    var option = document.createElement('option');
-    console.log(('option').value)
-    option.value = catArray[i];
-    option.text = catArray[i];
-    document.getElementById('breedDropdown').add(option);
-  }}
+
+populateArray();
 
 
-populateDogArray();
-
-
-
+// on submit the form will prevent default and the locally stored value for the saved species will be checked in a conditional
+// if the user selected dog it will go to the dog results page, and vice versa for cat
+// if the user does not select dog or cat the page is reloaded
 document.querySelector("form").addEventListener("submit", function (event) {
   event.preventDefault();
 
@@ -842,24 +840,10 @@ document.querySelector("form").addEventListener("submit", function (event) {
   }else if (savedSpecies === 'Cat'){
     location.assign('resultsCat.html')
   } else {
-    window.alert('please select cat or dog')
+    location.reload();
   }
  
 });
 
 
 
-document.addEventListener('click', function(){
-  localStorage.setItem(currentQuestion, selectedValue)
-  var choiceSpecies = JSON.parse(localStorage.getItem("species"));
-  if(choiceSpecies === 'Dog'){
-    populateDogArray()
-  }else{
-    populateCatArray()
-  }
-})
-// if(choiceSpecies === 'Dog'){
-//   populateDogArray();
-// }else{
-//   populateCatArray();
-// }
