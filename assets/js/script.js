@@ -3,8 +3,7 @@ var chosenPetType = 'dogs'
 var petBreed = 'mastiff'
 var catCarouselImgs = document.querySelectorAll('.cat-image')
 var dogCarouselImgs = document.querySelectorAll('.dog-image')
-var catCardImage = document.getElementById('catCardImg-Top')
-var dogCardImage = document.getElementById('dogCardImg-Top')
+
 // var carouselItems = document.getElementById('carousel-items')
 var requestNinja = `https://api.api-ninjas.com/v1/${chosenPetType}?name=${petBreed}`
 
@@ -193,12 +192,12 @@ var catArray = [
   "Ukrainian Levkoy",
 ];
 // cat loop for breed drop down
-for (let i = 0; i < catArray.length; i++) {
-  var option = document.createElement("option");
-  option.textContent = catArray[i];
-  catArray[i] = catArray[i].toLowerCase().split(" ").join("_");
-  option.value = catArray[i];
-}
+// for (let i = 0; i < catArray.length; i++) {
+//   var option = document.createElement("option");
+//   option.textContent = catArray[i];
+//   catArray[i] = catArray[i].toLowerCase().split(" ").join("_");
+//   option.value = catArray[i];
+// }
 
 var dogArray = [
   "Affenpinscher",
@@ -751,12 +750,12 @@ var dogArray = [
   "Turkish Van",
   "Ukrainian Levkoy",
 ];
-for (let i = 0; i < dogArray.length; i++) {
-  var option= document.createElement('option')
-  option.textContent = dogArray[i]
-  dogArray[i] = dogArray[i].toLowerCase().split(" ").join("_")
-  option.value = dogArray[i]
-}
+// for (let i = 0; i < dogArray.length; i++) {
+//   var option= document.createElement('option')
+//   option.textContent = dogArray[i]
+//   dogArray[i] = dogArray[i].toLowerCase().split(" ").join("_")
+//   option.value = dogArray[i]
+// }
 
 console.log(dogArray)
 
@@ -779,23 +778,7 @@ function petType() {
 }
 petType();
 
-function petImage() {
-  fetch(requestNinja, {
-    headers: {
-      "X-Api-Key": "cjMugAovo7SNn+DtczTAMg==P49uxlggz9Z3SFRx",
-    },
-    contentType: "application/json",
-  })
-    .then(function (response) {
-      console.log(response);
-      return response.json();
-    })
-    .then(function (data) {
-      var chosenPetImage = data[0].image_link
-      dogCardImage.appendChild(chosenPetImage)
-    });
-}
-petImage();
+
 
 
 // combined cat array into dog array for the prototype alpha

@@ -15,6 +15,11 @@ var answerFriendlinessHTML = document.querySelector("#answerFriendly");
 var answerTrainabilityHTML = document.querySelector("#answerTrainability");
 var answerGroomingHTML = document.querySelector("#answerGrooming");
 var answerSizeHTML = document.querySelector("#answerSize");
+var catCardImage = document.querySelector('.catCardImg-Top')
+var dogCardImage = document.querySelector('.dogCardImg-Top')
+var chosenPetType = 'dogs'
+var petBreed = 'mastiff'
+var requestNinja = `https://api.api-ninjas.com/v1/${chosenPetType}?name=${petBreed}`
 
 //add questions and answers to results page
 function addQuestionAnswers () {
@@ -50,6 +55,24 @@ function addNameSizeFriendliness () {
         cardTrainabiltyHTML.textContent = "Trainability: " +  localStorage.getItem("trainability");
     }
 }
+
+function petImage() {
+    fetch(requestNinja, {
+      headers: {
+        "X-Api-Key": "cjMugAovo7SNn+DtczTAMg==P49uxlggz9Z3SFRx",
+      },
+      contentType: "application/json",
+    })
+      .then(function (response) {
+        console.log(response);
+        return response.json();
+      })
+      .then(function (data) {
+        var chosenPetImage = data[0].image_link
+        dogCardImage.setAttribute('src', chosenPetImage)
+      });
+  }
+  petImage();
 
 addNameSizeFriendliness ();
 addQuestionAnswers ()
