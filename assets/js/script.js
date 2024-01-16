@@ -1,8 +1,10 @@
 var APINinjas = 'cjMugAovo7SNn+DtczTAMg==P49uxlggz9Z3SFRx'
-var chosenPetType = 'cats'
-var petBreed = 'abyssinian'
+var chosenPetType = 'dogs'
+var petBreed = 'mastiff'
 var catCarouselImgs = document.querySelectorAll('.cat-image')
 var dogCarouselImgs = document.querySelectorAll('.dog-image')
+var catCardImage = document.getElementById('catCardImg-Top')
+var dogCardImage = document.getElementById('dogCardImg-Top')
 // var carouselItems = document.getElementById('carousel-items')
 var requestNinja = `https://api.api-ninjas.com/v1/${chosenPetType}?name=${petBreed}`
 
@@ -92,40 +94,6 @@ fetch(`https://api.thedogapi.com/v1/images/search?limit=5&api_key=${theDogAPIKey
     }
    console.log(imgDogArray);
  })
-
-//  dog or cat for ninjaAPI
-// function petType() {
-//   fetch(requestNinja, {
-//     headers: {
-//       "X-Api-Key": "cjMugAovo7SNn+DtczTAMg==P49uxlggz9Z3SFRx",
-//     },
-//     contentType: "application/json",
-//   })
-//     .then(function (response) {
-//       console.log(response);
-//       return response.json();
-//     })
-//     .then(function (data) {
-//       console.log(data);
-//     });
-// }
-// petType()
-
-// function petImage() {
-//   fetch(requestNinja, {
-//     headers: {
-//       "X-Api-Key": "cjMugAovo7SNn+DtczTAMg==P49uxlggz9Z3SFRx",
-//     },
-//     contentType: "application/json",
-//   })
-//     .then(function (response) {
-//       console.log(response);
-//       return response.json();
-//     })
-//     .then(function (data) {
-//       console.log(data);
-//     });
-// }
 
 var catArray = [
   "Abyssinian",
@@ -231,8 +199,6 @@ for (let i = 0; i < catArray.length; i++) {
   catArray[i] = catArray[i].toLowerCase().split(" ").join("_");
   option.value = catArray[i];
 }
-
-
 
 var dogArray = [
   "Affenpinscher",
@@ -794,6 +760,8 @@ for (let i = 0; i < dogArray.length; i++) {
 
 console.log(dogArray)
 
+//  dog or cat for ninjaAPI
+
 function petType() {
   fetch(requestNinja, {
     headers: {
@@ -823,19 +791,14 @@ function petImage() {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
-
-      for (let i = 0; i < data.length; i++) {
-      var cardImgTop = document.getElementsByClassName('cardImg-top')
-        
-      }
+      var chosenPetImage = data[0].image_link
+      dogCardImage.appendChild(chosenPetImage)
     });
 }
 petImage();
 
+
 // combined cat array into dog array for the prototype alpha
-
-
 
 function populateDogArray(){
 for (var i = 0; i < dogArray.length; i++) {
@@ -849,7 +812,7 @@ for (var i = 0; i < dogArray.length; i++) {
 function populateCatArray(){
   for (var i = 0; i < catArray.length; i++) {
     var option = document.createElement('option');
-    console.log(('option').value)
+    console.log(('option').valueOf)
     option.value = catArray[i];
     option.text = catArray[i];
     document.getElementById('breedDropdown').add(option);
@@ -858,7 +821,7 @@ function populateCatArray(){
 
 populateDogArray();
 
-
+populateCatArray()
 
 document.querySelector("form").addEventListener("submit", function (event) {
   event.preventDefault();
