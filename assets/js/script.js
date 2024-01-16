@@ -22,6 +22,7 @@ var savedChildFriendly = localStorage.getItem('childFriendly');
 var savedTrainability = localStorage.getItem('trainability');
 var savedGrooming = localStorage.getItem('grooming');
 var savedSize = localStorage.getItem('size');
+var petFormHTML = document.querySelector('#petForm');
 
 catDogDropdown.addEventListener('change', function () {
   localStorage.setItem('species', catDogDropdown.value);
@@ -46,9 +47,7 @@ sizeDropdown.addEventListener('change', function () {
   localStorage.setItem('size', sizeDropdown.value);
 });
 
-
 console.log(catDogDropdown);
-
 
 var imgArray = []
 
@@ -128,7 +127,7 @@ function petType() {
 }
 petType();
 
-// var catArray = [
+var catArray = [
 //   "Abyssinian",
 //   "Aegean",
 //   "American Curl",
@@ -233,7 +232,7 @@ petType();
 //   catArray[i] = catArray[i].toLowerCase().split(" ").join("%20");
 //   option.value = catArray[i];
 //   dropdownAnswers.append(option);
-// }
+];
 
 
 
@@ -788,9 +787,9 @@ var dogArray = [
   "Turkish Van",
   "Ukrainian Levkoy",
 ];
-console.log(dogArray)
+console.log(dogArray);
 
-console
+// console
 
 function petType() {
   fetch(requestNinja, {
@@ -809,20 +808,29 @@ function petType() {
 }
 petType();
 
-// combined cat array into dog array for the prototype alpha
 
 
-function populateArray(){
+
+function populateDogArray(){
 for (var i = 0; i < dogArray.length; i++) {
   var option = document.createElement('option');
-  console.log(('option').value)
+  //console.log(('option').value);
   option.value = dogArray[i];
   option.text = dogArray[i];
   document.getElementById('breedDropdown').add(option);
 }}
 
+function populateCatArray(){
+  for (var i = 0; i < catArray.length; i++) {
+    var option = document.createElement('option');
+    console.log(('option').value)
+    option.value = catArray[i];
+    option.text = catArray[i];
+    document.getElementById('breedDropdown').add(option);
+  }}
 
-populateArray();
+
+populateDogArray();
 
 
 
@@ -841,33 +849,17 @@ document.querySelector("form").addEventListener("submit", function (event) {
 
 
 
-// document.addEventListener('click', function(){
-//   localStorage.setItem(currentQuestion, selectedValue)
-//   var choiceSpecies = JSON.parse(localStorage.getItem("species"));
-//   if(choiceSpecies === 'Dog'){
-//     populateDogArray()
-//   }else{
-//     populateCatArray()
-//   }
-// })
-
-// add image links to results page for cat cards
-// function addCatImage (){
-//   var formData = new FormData();
-//   for (let i = 0; i < )
-//   formData.append('image', $('#YOUR_IMAGE_FILE')[0].files[0]);
-//   $.ajax({
-//       method: 'POST',
-//       url: 'https://api.api-ninjas.com/v1/imagetotext',
-//       data: formData,
-//       enctype: 'multipart/form-data',
-//       processData: false,
-//       contentType: false,
-//       success: function(result) {
-//           console.log(result);
-//       },
-//       error: function ajaxError(jqXHR, textStatus, errorThrown) {
-//           alert(jqXHR.responseText);
-//       }
-//   });}
-
+document.addEventListener('click', function(){
+  localStorage.setItem(currentQuestion, selectedValue)
+  var choiceSpecies = JSON.parse(localStorage.getItem("species"));
+  if(choiceSpecies === 'Dog'){
+    populateDogArray()
+  }else{
+    populateCatArray()
+  }
+})
+// if(choiceSpecies === 'Dog'){
+//   populateDogArray();
+// }else{
+//   populateCatArray();
+// }
