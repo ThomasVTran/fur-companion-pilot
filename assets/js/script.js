@@ -4,6 +4,8 @@ var petBreed = '5'
 var carouselImgs = document.querySelectorAll('.animal-image')
 var carouselItems = document.getElementById('carousel-items')
 var requestNinja = `https://api.api-ninjas.com/v1/${chosenPetType}?playfulness=${petBreed}`
+
+
 var theCatAPIKey = 'live_zqFTSSujc6nQSLlan4OKwI0Jzmsczq7iedMNANsZMjYf6yKUT8ee0A13DyhrzRHv'
 var theDogAPIKey = 'live_T2AySINQ9j3gOKvi0bkfD47zo8VSZAyo8bkluvwT1hCxQZig4DiIC951YSat8qEm'
 var catDogDropdown = document.getElementById('catDogDropdown');
@@ -763,7 +765,6 @@ var dogArray = [
   "Ragamuffin",
   "Ragdoll",
   "Russian Blue",
-
   "Sam Sawet",
   "Savannah",
   "Scottish Fold",
@@ -807,6 +808,9 @@ function petType() {
 }
 petType();
 
+
+
+
 function populateDogArray(){
 for (var i = 0; i < dogArray.length; i++) {
   var option = document.createElement('option');
@@ -825,10 +829,10 @@ function populateCatArray(){
     document.getElementById('breedDropdown').add(option);
   }}
 
-  
 
 populateDogArray();
-populateCatArray();
+
+
 
 document.querySelector("form").addEventListener("submit", function (event) {
   event.preventDefault();
@@ -843,17 +847,19 @@ document.querySelector("form").addEventListener("submit", function (event) {
  
 });
 
-// petFormHTML.addEventListener('submit', function(event) {
-//   event.preventDefault();
-//   var selectedValue = " ";
-//   localStorage.setItem("currentQuestion", selectedValue);
-//   var choiceSpecies = JSON.parse(localStorage.getItem("species"));
-//   if(choiceSpecies === 'Dog'){
-//     populateDogArray()
-//   }else{
-//     populateCatArray()
-//   }
-// })
 
 
-
+document.addEventListener('click', function(){
+  localStorage.setItem(currentQuestion, selectedValue)
+  var choiceSpecies = JSON.parse(localStorage.getItem("species"));
+  if(choiceSpecies === 'Dog'){
+    populateDogArray()
+  }else{
+    populateCatArray()
+  }
+})
+// if(choiceSpecies === 'Dog'){
+//   populateDogArray();
+// }else{
+//   populateCatArray();
+// }
