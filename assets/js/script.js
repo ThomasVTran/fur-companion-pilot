@@ -70,6 +70,7 @@ fetch(`https://api.thecatapi.com/v1/images/search?limit=5&api_key=${theCatAPIKey
   for (let i = 0; i < catCarouselImgs.length; i++) {
     catCarouselImgs[i].setAttribute('src', imgCatArray[i])
   }
+  console.log(imgCatArray);
 })
 
 var imgDogArray = []
@@ -93,129 +94,143 @@ fetch(`https://api.thedogapi.com/v1/images/search?limit=5&api_key=${theDogAPIKey
  })
 
 //  dog or cat for ninjaAPI
-function petType() {
-  fetch(requestNinja, {
-    headers: {
-      "X-Api-Key": "cjMugAovo7SNn+DtczTAMg==P49uxlggz9Z3SFRx",
-    },
-    contentType: "application/json",
-  })
-    .then(function (response) {
-      console.log(response);
-      return response.json();
-    })
-    .then(function (data) {
-      console.log(data);
-    });
-}
-petType()
-
-// var catArray = [
-//   "Abyssinian",
-//   "Aegean",
-//   "American Curl",
-//   "American Bobtail",
-//   "American Shorthair",
-//   "American Wirehair",
-//   "Arabian Mau",
-//   "Australian Mist",
-//   "Asian",
-//   "Asian Semi-longhair",
-//   "Balinese",
-//   "Bambino",
-//   "Bengal",
-//   "Birman",
-//   "Bombay",
-//   "Brazilian Shorthair",
-//   "British Semi-longhair",
-//   "British Shorthair",
-//   "British Longhair",
-//   "Burmese",
-//   "Burmilla",
-//   "California Spangled",
-//   "Chantilly-Tiffany",
-//   "Chartreux",
-//   "Chausie",
-//   "Cheetoh",
-//   "Colorpoint Shorthair",
-//   "Cornish Rex",
-//   "Cymric",
-//   "Cyprus",
-//   "Devon Rex",
-//   "Donskoy",
-//   "Dragon Li",
-//   "Dwarf cat",
-//   "Egyptian Mau",
-//   "European Shorthair",
-//   "Exotic Shorthair",
-//   "Foldex",
-//   "German Rex",
-//   "Havana Brown",
-//   "Highlander",
-//   "Himalayan",
-//   "Japanese Bobtail",
-//   "Javanese",
-//   "Karelian Bobtail",
-//   "Khao Manee",
-//   "Korat",
-//   "Korean Bobtail",
-//   "Korn Ja",
-//   "Kurilian Bobtail",
-//   "LaPerm",
-//   "Lykoi",
-//   "Maine Coon",
-//   "Manx",
-//   "Mekong Bobtail",
-//   "Minskin",
-//   "Munchkin",
-//   "Nebelung",
-//   "Napoleon",
-//   "Norwegian Forest",
-//   "Ocicat",
-//   "Ojos Azules",
-//   "Oregon Rex",
-//   "Oriental Bicolor",
-//   "Oriental Shorthair",
-//   "Oriental Longhair",
-//   "PerFold",
-//   "Persian",
-//   "Peterbald",
-//   "Pixie-bob",
-//   "Raas",
-//   "Ragamuffin",
-//   "Ragdoll",
-//   "Russian Blue",
-
-//   "Sam Sawet",
-//   "Savannah",
-//   "Scottish Fold",
-//   "Selkirk Rex",
-//   "Serengeti",
-//   "Serrade petit",
-//   "Siamese",
-//   "Siberian",
-//   "Singapura",
-//   "Snowshoe",
-//   "Sokoke",
-//   "Somali",
-//   "Sphynx",
-//   "Suphalak",
-//   "Thai",
-//   "Thai Lilac",
-//   "Tonkinese",
-//   "Toyger",
-//   "Turkish Angora",
-//   "Turkish Van",
-//   "Ukrainian Levkoy",
-// ];
-// cat loop for breed drop down
-// for (let i = 0; i < catArray.length; i++) {
-//   var option = document.createElement("option");
-//   option.textContent = catArray[i];
-//   catArray[i] = catArray[i].toLowerCase().split(" ").join("%20");
-//   option.value = catArray[i];
-//   dropdownAnswers.append(option);
+// function petType() {
+//   fetch(requestNinja, {
+//     headers: {
+//       "X-Api-Key": "cjMugAovo7SNn+DtczTAMg==P49uxlggz9Z3SFRx",
+//     },
+//     contentType: "application/json",
+//   })
+//     .then(function (response) {
+//       console.log(response);
+//       return response.json();
+//     })
+//     .then(function (data) {
+//       console.log(data);
+//     });
 // }
+// petType()
+
+// function petImage() {
+//   fetch(requestNinja, {
+//     headers: {
+//       "X-Api-Key": "cjMugAovo7SNn+DtczTAMg==P49uxlggz9Z3SFRx",
+//     },
+//     contentType: "application/json",
+//   })
+//     .then(function (response) {
+//       console.log(response);
+//       return response.json();
+//     })
+//     .then(function (data) {
+//       console.log(data);
+//     });
+// }
+
+var catArray = [
+  "Abyssinian",
+  "Aegean",
+  "American Curl",
+  "American Bobtail",
+  "American Shorthair",
+  "American Wirehair",
+  "Arabian Mau",
+  "Australian Mist",
+  "Asian",
+  "Asian Semi-longhair",
+  "Balinese",
+  "Bambino",
+  "Bengal",
+  "Birman",
+  "Bombay",
+  "Brazilian Shorthair",
+  "British Semi-longhair",
+  "British Shorthair",
+  "British Longhair",
+  "Burmese",
+  "Burmilla",
+  "California Spangled",
+  "Chantilly-Tiffany",
+  "Chartreux",
+  "Chausie",
+  "Cheetoh",
+  "Colorpoint Shorthair",
+  "Cornish Rex",
+  "Cymric",
+  "Cyprus",
+  "Devon Rex",
+  "Donskoy",
+  "Dragon Li",
+  "Dwarf cat",
+  "Egyptian Mau",
+  "European Shorthair",
+  "Exotic Shorthair",
+  "Foldex",
+  "German Rex",
+  "Havana Brown",
+  "Highlander",
+  "Himalayan",
+  "Japanese Bobtail",
+  "Javanese",
+  "Karelian Bobtail",
+  "Khao Manee",
+  "Korat",
+  "Korean Bobtail",
+  "Korn Ja",
+  "Kurilian Bobtail",
+  "LaPerm",
+  "Lykoi",
+  "Maine Coon",
+  "Manx",
+  "Mekong Bobtail",
+  "Minskin",
+  "Munchkin",
+  "Nebelung",
+  "Napoleon",
+  "Norwegian Forest",
+  "Ocicat",
+  "Ojos Azules",
+  "Oregon Rex",
+  "Oriental Bicolor",
+  "Oriental Shorthair",
+  "Oriental Longhair",
+  "PerFold",
+  "Persian",
+  "Peterbald",
+  "Pixie-bob",
+  "Raas",
+  "Ragamuffin",
+  "Ragdoll",
+  "Russian Blue",
+  "Sam Sawet",
+  "Savannah",
+  "Scottish Fold",
+  "Selkirk Rex",
+  "Serengeti",
+  "Serrade petit",
+  "Siamese",
+  "Siberian",
+  "Singapura",
+  "Snowshoe",
+  "Sokoke",
+  "Somali",
+  "Sphynx",
+  "Suphalak",
+  "Thai",
+  "Thai Lilac",
+  "Tonkinese",
+  "Toyger",
+  "Turkish Angora",
+  "Turkish Van",
+  "Ukrainian Levkoy",
+];
+// cat loop for breed drop down
+for (let i = 0; i < catArray.length; i++) {
+  var option = document.createElement("option");
+  option.textContent = catArray[i];
+  catArray[i] = catArray[i].toLowerCase().split(" ").join("_");
+  option.value = catArray[i];
+}
 
 
 
@@ -770,9 +785,14 @@ var dogArray = [
   "Turkish Van",
   "Ukrainian Levkoy",
 ];
-console.log(dogArray)
+for (let i = 0; i < dogArray.length; i++) {
+  var option= document.createElement('option')
+  option.textContent = dogArray[i]
+  dogArray[i] = dogArray[i].toLowerCase().split(" ").join("_")
+  option.value = dogArray[i]
+}
 
-console
+console.log(dogArray)
 
 function petType() {
   fetch(requestNinja, {
@@ -791,13 +811,35 @@ function petType() {
 }
 petType();
 
+function petImage() {
+  fetch(requestNinja, {
+    headers: {
+      "X-Api-Key": "cjMugAovo7SNn+DtczTAMg==P49uxlggz9Z3SFRx",
+    },
+    contentType: "application/json",
+  })
+    .then(function (response) {
+      console.log(response);
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+
+      for (let i = 0; i < data.length; i++) {
+      var cardImgTop = document.getElementsByClassName('cardImg-top')
+        
+      }
+    });
+}
+petImage();
+
 // combined cat array into dog array for the prototype alpha
 
 
 function populateArray(){
 for (var i = 0; i < dogArray.length; i++) {
   var option = document.createElement('option');
-  console.log(('option').value)
+  console.log(('option').valueOf)
   option.value = dogArray[i];
   option.text = dogArray[i];
   document.getElementById('breedDropdown').add(option);
