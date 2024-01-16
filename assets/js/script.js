@@ -22,6 +22,7 @@ var savedChildFriendly = localStorage.getItem('childFriendly');
 var savedTrainability = localStorage.getItem('trainability');
 var savedGrooming = localStorage.getItem('grooming');
 var savedSize = localStorage.getItem('size');
+var petFormHTML = document.querySelector('#petForm');
 
 // adding an event listener for change on each dropdown option element by using the variable that targets. 
 // there is a custom key for each
@@ -48,10 +49,9 @@ sizeDropdown.addEventListener('change', function () {
   localStorage.setItem('size', sizeDropdown.value);
 });
 
-
 console.log(catDogDropdown);
 
-// 
+
 var imgArray = []
 
 fetch(`https://api.thecatapi.com/v1/images/search?limit=5&api_key=${theCatAPIKey}`)
@@ -130,7 +130,7 @@ function petType() {
 }
 petType();
 
-// var catArray = [
+var catArray = [
 //   "Abyssinian",
 //   "Aegean",
 //   "American Curl",
@@ -235,7 +235,7 @@ petType();
 //   catArray[i] = catArray[i].toLowerCase().split(" ").join("%20");
 //   option.value = catArray[i];
 //   dropdownAnswers.append(option);
-// }
+];
 
 
 
@@ -790,9 +790,9 @@ var dogArray = [
   "Turkish Van",
   "Ukrainian Levkoy",
 ];
-console.log(dogArray)
+console.log(dogArray);
 
-console
+// console
 
 function petType() {
   fetch(requestNinja, {
@@ -811,7 +811,6 @@ function petType() {
 }
 petType();
 
-// combined cat array into dog array for the prototype alpha
 
 // the populate function is using a for loop to run over the dogArray (which now has the catArray in it for this version)
 // option variable is going to be a new option element, the option and value properties of the new option element are going to be the current dog 
@@ -820,7 +819,7 @@ petType();
 function populateArray(){
 for (var i = 0; i < dogArray.length; i++) {
   var option = document.createElement('option');
-  console.log(('option').value)
+  //console.log(('option').value);
   option.value = dogArray[i];
   option.text = dogArray[i];
   document.getElementById('breedDropdown').add(option);
